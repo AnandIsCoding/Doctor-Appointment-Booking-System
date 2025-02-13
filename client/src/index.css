@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+
+
+body{
+    margin: 0;
+    padding:0;
+    background-color:white;
+    width:100%;
+    box-sizing: border-box;
+}
+
+*{
+    font-family: gilroy;
+}
+
+/* set scrollbar height and weidth to 0 so that it will be removed from page */
+::-webkit-scrollbar{
+    width: 0px;
+    height:0px;
+    background-color: rgb(134, 40, 196)
+  }
+
+
+
+/* .products {
+    mix-blend-mode: multiply; 
+  }
+   */
+/* shimmer card animations */
+/* @keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+} */
+
+/* .shimmer {
+  background: linear-gradient(90deg, #f3f3f3 25%, #e0e0e0 50%, #f3f3f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+} */
