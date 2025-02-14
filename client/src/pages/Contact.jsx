@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 function Contact() {
   return (
@@ -10,6 +11,7 @@ function Contact() {
     <h1 className='mt-14'>📱📱📱📱📱📱📱📱📱📱📱📱</h1>
     </div>
 
+<Footer/>
 
       
     </div>

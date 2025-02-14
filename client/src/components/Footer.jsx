@@ -2,14 +2,14 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="w-screen flex flex-col md:flex-row min-h-[10vw]  md:pb-0">
+    <div className="w-screen flex flex-col md:flex-row min-h-[10vw]  md:pb-0 ">
       {/* Main footer container divided into 2 sections */}
       <div className="w-full flex md:flex-row bg-white">
         {/* Left section: About the hospital */}
         <div className="w-[50%] bg-[#004D43] text-white p-8 relative">
-          <h2 className="text-xl font-bold mb-4">About Us</h2>
+          {/* <h2 className="text-xl font-bold mb-4">About Us</h2> */}
           <p className="text-sm">
-            We are a multi-specialty hospital committed to providing world-class healthcare services with state-of-the-art facilities and a dedicated team of professionals.
+            We are a multi-specialty hospital committed to providing world-class healthcare services.
           </p>
           {/* Contact information */}
           {/* <div className="flex gap-4 mt-4">
@@ -27,7 +27,7 @@ function Footer() {
         <div className="w-[50%] bg-[#004D43] flex flex-col justify-center items-center" id="quicklinks">
           <h3 className="text-xl mb-4 text-white font-bold">Quick Links</h3>
           <ul className="space-y-2 text-white text-sm">
-            <li><a href="#" className="hover:underline">Home</a></li>
+            {/* <li><a href="#" className="hover:underline">Home</a></li> */}
             <li><a href="#" className="hover:underline">Departments</a></li>
             <li><a href="#" className="hover:underline">Doctors</a></li>
             <li><a href="#" className="hover:underline">Book an Appointment</a></li>
@@ -54,8 +54,8 @@ function Footer() {
         <div className="w-[50%] bg-[#004D43] text-white flex flex-col justify-center items-center">
           <h3 className="text-xl mb-4 font-bold mt-2">Stay Connected</h3>
           <ul className="space-y-2">
-            <li>Email: contact@lifecarehospital.com</li>
-            <li>Phone: +91 98765 43210</li>
+            {/* <li>Email: contact@lifecarehospital.com</li> */}
+            {/* <li>Phone: +91 98765 43210</li> */}
             <li>Address: 123 Health Street, City, India</li>
           </ul>
           <div className="mt-4">
