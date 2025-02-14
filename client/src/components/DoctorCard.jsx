@@ -22,7 +22,7 @@ const DoctorCard = ({ doctor }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-5 sm:w-full md:w-72 group relative z-[10] ">
       {/* Doctor Image */}
-      <div className="w-full min-h-[5vw] rounded-2xl overflow-hidden group">
+      <div className="w-full min-h-[5vw] rounded-2xl overflow-hidden group bg-green-700 ">
         <img
           src={doctor.image}
           alt={doctor.name}

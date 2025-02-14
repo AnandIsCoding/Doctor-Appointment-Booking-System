@@ -54,7 +54,7 @@ function Navbar() {
           
           <div
           className={` sm:w-[45%] w-[45%]    py-7 text-white bg-[#004D43] ${
-            !openPanel ? "hidden" : "absolute right-4 top-30 leading-1 px-6 flex flex-col gap-4 rounded-lg"
+            !openPanel ? "hidden" : "fixed right-4 top-30 leading-1 px-6 flex flex-col gap-4 rounded-lg z-[999]"
           } `}
         >
            <NavLink to="/doctors" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">

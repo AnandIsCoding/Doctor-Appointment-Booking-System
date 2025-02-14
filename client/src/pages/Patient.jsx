@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 function Patient() {
   const isOpen = useSelector(state => state.sidebar)
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <div className="w-full pt-10 flex  ">
         <PatientNavbar />
         <Sidebar />
@@ -16,8 +16,11 @@ function Patient() {
 
       
     
-      <div className={`w-full mt-24 px-4 ${isOpen ? "md:pl-[18%]" : "md:pl-[5%]"} flex flex-wrap justify-center items-stretch gap-4`}>
+      <div className={`w-full  mt-24 ${isOpen ? "pl-30 md:ml-[20%]" : "pl-12 ml-[10%]"} `}>
        <h1>Guide And profile Edit section component for Profile</h1>
+       <div className='w-full px-5 py-2 rounded-2xl'>
+
+       </div>
 
       
        </div>

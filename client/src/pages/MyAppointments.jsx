@@ -12,7 +12,7 @@ function MyAppointments() {
         <Sidebar />
       </div>
 
-      <div className={`w-full  mt-24 ${isOpen ? "ml-[50%] md:ml-[20%]" : " ml-[10%]"} `}> My Appoinment </div>
+      <div className={`w-full  mt-24 ${isOpen ? "pl-30 md:ml-[20%]" : "pl-12 ml-[10%]"} `}> My Appoinment </div>
     </div>
   )
 }
