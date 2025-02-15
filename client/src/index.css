@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding:0;
-    background-color:#F3F8FF;
+    background-color:white;
     width:100%;
     box-sizing: border-box;
 }
@@ -30,6 +30,15 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Hide arrows in number input for Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+li:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.custom-text-shadow {
+  text-shadow: 8px 8px 18px rgba(10, 10, 10, 0.6); 
 }
 
 

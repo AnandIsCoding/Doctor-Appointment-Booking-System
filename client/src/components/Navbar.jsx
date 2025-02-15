@@ -19,12 +19,14 @@ function Navbar() {
         <NavLink to="/doctors" duration={3000}  className="text-lg text-white font-semibold  cursor-pointer ">
           Doctors
         </NavLink>
+       
         <NavLink to="/services" duration={2000} className="text-lg text-white font-semibold  cursor-pointer ">
           Services
         </NavLink>
         <NavLink to='/contact'  className="text-lg font-semibold text-white cursor-pointer   ">
           Contact
         </NavLink>
+        
         <NavLink
   rel="noopener noreferrer"
   to="/signup-login"
@@ -57,6 +59,9 @@ function Navbar() {
             !openPanel ? "hidden" : "fixed right-4 top-30 leading-1 px-6 flex flex-col gap-4 rounded-lg z-[999]"
           } `}
         >
+           <NavLink onClick={()=> setOpenpanel(prev => !prev)} to="/" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
+          Seva Home
+        </NavLink>
            <NavLink to="/doctors" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
           Doctors
         </NavLink>
