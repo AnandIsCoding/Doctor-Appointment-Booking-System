@@ -11,7 +11,7 @@ body{
 }
 
 *{
-    font-family: gilroy;
+  font-family:gilroy;
 }
 
 /* set scrollbar height and weidth to 0 so that it will be removed from page */
@@ -20,6 +20,17 @@ body{
     height:0px;
     background-color: rgb(134, 40, 196)
   }
+
+  input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide arrows in number input for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
 
 

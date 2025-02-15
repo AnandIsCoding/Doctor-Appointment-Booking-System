@@ -16,13 +16,13 @@ function Navbar() {
       </div>
 
       <div className=" h-full  justify-between gap-4  pt-4 hidden md:flex">
-        <NavLink to="/doctors" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
+        <NavLink to="/doctors" duration={3000}  className="text-lg text-white font-semibold  cursor-pointer ">
           Doctors
         </NavLink>
-        <NavLink to="/services" duration={2000} className="text-xl text-white font-semibold  cursor-pointer ">
+        <NavLink to="/services" duration={2000} className="text-lg text-white font-semibold  cursor-pointer ">
           Services
         </NavLink>
-        <NavLink to='/contact'  className="text-xl font-semibold text-white cursor-pointer   ">
+        <NavLink to='/contact'  className="text-lg font-semibold text-white cursor-pointer   ">
           Contact
         </NavLink>
         <NavLink

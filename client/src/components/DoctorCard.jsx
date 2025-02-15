@@ -55,7 +55,7 @@ const DoctorCard = ({ doctor }) => {
       {/* Book Appointment Button */}
       <button
         onClick={handleBookDoctorBtnClick}
-        className="mt-4 bg-[#004D43] text-white px-4 py-2 rounded-lg w-full hover:bg-[#026A55] transition cursor-pointer"
+        className="mt-4 bg-[#004D43] text-white px-4 py-2 rounded-lg w-full hover:bg-[#27DFB3] hover:text-black hover:scale-105 transition cursor-pointer"
       >
         Book Appointment
       </button>

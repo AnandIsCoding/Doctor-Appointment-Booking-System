@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggle } from '../redux/slices/sidebarSlice';
 import { LuSquareArrowLeft, LuSquareArrowRight } from "react-icons/lu";
 import { AiOutlineLogout } from "react-icons/ai";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 function Sidebar() {
 
   const navigate = useNavigate()
+  const location = useLocation()
   const dispatch = useDispatch()
   const isOpen = useSelector(state => state.sidebar)
 
@@ -42,14 +43,14 @@ function Sidebar() {
         />
       </div>
 
-      <button onClick={() => navigate('/patient')} className={`w-full bg-[#27DFB3] cursor-pointer py-2 rounded-lg ${!isOpen && "hidden"}`}>Patient</button>
+      <button onClick={() => navigate('/patient')} className={`w-full ${location.pathname === "/patient" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} cursor-pointer py-2 rounded-lg ${!isOpen && "hidden"}`}>Patient</button>
 
-      <NavLink to="/patient/book-appointment" duration={3000} className="w-full bg-white text-center py-2 rounded-lg cursor-pointer ">
+      <NavLink to="/patient/book-appointment" duration={3000} className={`w-full  ${location.pathname === "/patient/book-appointment" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} text-center py-2 rounded-lg cursor-pointer `}>
         New
       </NavLink>
 
-      <NavLink to='/patient/my-appointments' className="w-full bg-white py-2 text-center rounded-lg cursor-pointer ">
-        Previous
+      <NavLink to='/patient/my-appointments' className={`w-full ${location.pathname === "/patient/my-appointments" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} py-2 text-center rounded-lg cursor-pointer`}>
+        All
       </NavLink>
 
       {/* Logout button at the bottom */}

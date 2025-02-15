@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useSelector } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 function PatientNavbar() {
    const navigate = useNavigate()
+   const location = useLocation()
     const [openPanel, setOpenpanel] = useState(false)
     const isOpen = useSelector(state => state.sidebar)
   return (
@@ -13,12 +14,12 @@ function PatientNavbar() {
       <>
         <div className={` w-full pr-6 z-[50] bg-[#004D43]  mt-3 px-4 ${isOpen ? "md:pl-[18%] ml-[20%]" : "md:pl-[10%] ml-[10%]"} flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-xl mr-4 fixed`}>
       <div className=" h-full  justify-between   hidden md:flex gap-14">
-        <NavLink to="/patient/book-appointment" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
-          Book Appointment
+        <NavLink to="/patient/book-appointment" duration={3000}  className="text-lg flex gap-2 text-white font-semibold  cursor-pointer ">
+          Book Appointment {location.pathname == '/patient/book-appointment' && <h1>💡</h1>}
         </NavLink>
         
-        <NavLink to='/patient/my-appointments'  className="text-xl font-semibold text-white cursor-pointer   ">
-          My Appointments
+        <NavLink to='/patient/my-appointments'  className="text-lg font-semibold flex gap-2 text-white cursor-pointer   ">
+          My Appointments {location.pathname == '/patient/my-appointments' && <h1>💊</h1>}
         </NavLink>      
 
         
