@@ -36,7 +36,7 @@ function App() {
       <Suspense
         // Fallback loader while components are loading
         fallback={
-          <div className="absolute top-0 left-0 bottom-0 right-0 bg-black flex justify-center items-center duration-[2s]">
+          <div className="absolute top-0 left-0 bottom-0 right-0 bg-black flex justify-center items-center duration-[5s]">
             <img src="/loader.gif" alt="loader" className="" />
           </div>
         }

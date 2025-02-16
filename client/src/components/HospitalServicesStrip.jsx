@@ -28,7 +28,7 @@ const hospitalServices = [
 // Functional Component for the "Hospital Services" section
 function HospitalServicesStrip() {
   return (
-    <div className="w-full px-5 py-6 flex flex-col mt-0 gap-6 bg-green-100 hover:bg-green-200 duration-200">
+    <div className="w-full px-5 py-6 flex flex-col mt-0 gap-6  duration-200">
       {/* Section Title */}
       <h1 className="text-center text-green-900 font-bold text-xl">Our Medical Services</h1>
 

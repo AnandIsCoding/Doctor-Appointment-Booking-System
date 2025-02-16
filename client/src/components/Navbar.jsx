@@ -3,11 +3,13 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { RiCloseLargeFill } from "react-icons/ri";
 import { FaWindowClose } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function Navbar() {
 
   const navigate = useNavigate()
   const [openPanel, setOpenpanel] = useState(false)
+  const user = useSelector(state => state.user)
   return (
     <div className='w-full flex justify-center z-[50]  '>
       <div className="w-[92%] rounded-lg bg-[#004D43] flex justify-between mt-14  px-5 fixed ">
@@ -29,10 +31,10 @@ function Navbar() {
         
         <NavLink
   rel="noopener noreferrer"
-  to="/signup-login"
+  to={`${user  ? '/patient' : '/signup-login' }`}
   className="text-xl font-semibold cursor-pointer bg-white text-black px-5 py-2  animate-bounce duration-500 flex items-center rounded-lg"
 >
-  Signup
+ {user ? 'Dashboard' : ' Signup'}
 </NavLink>
   <h1
           onClick={() => setOpenpanel(!openPanel)}
@@ -73,10 +75,10 @@ function Navbar() {
         </NavLink>
         <NavLink
   rel="noopener noreferrer"
-  to="/signup-login"
+  to={`${user  ? '/patient' : '/signup-login' }`}
   className="text-xl font-semibold cursor-pointer bg-white text-black w-full  px-5 py-2  animate-bounce duration-500 flex items-center rounded-lg"
 >
-  Signup
+  {user ? 'Dashboard' : ' Signup'}
 </NavLink>
           
           

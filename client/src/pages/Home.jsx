@@ -31,8 +31,7 @@ function Home() {
                <AnnouncementSection/>
                <HospitalServicesStrip/>
                <FAQs/>
-               <MultiStepDescription/>
-          
+               <MultiStepDescription/>         
          
       </div>
     <Footer/>
