@@ -44,7 +44,7 @@ function Doctors() {
 
       {/* all doctors crd visible for all users weather user registered or not */}
 
-      <div className="w-full mt-8 mb-[5vw] flex flex-wrap flex-shrink-0 gap-4 px-4 z-[10] ">
+      <div className="w-full mt-8 mb-[5vw] flex flex-wrap flex-shrink-0 gap-4 px-2 md:px-4 z-[10] ">
         {sampleDoctors.map((item) => {
           return <DoctorCard key={item._id} doctor={item} />;
         })}

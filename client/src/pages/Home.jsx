@@ -27,7 +27,7 @@ function Home() {
 
 
 
-      <div className="mt-32 mb-45 " >
+      <div className="mt-28 mb-10 " >
                <AnnouncementSection/>
                <HospitalServicesStrip/>
                <FAQs/>

@@ -17,7 +17,7 @@ function Sidebar() {
   }
 
   return (
-    <div className={`fixed  ${isOpen ? "w-[28%]  md:w-[15%] mt-[20vw] md:mt-2" : " w-[18%] md:w-[5%] mt-[20vw] md:mt-2"} min-h-screen bg-[#004D43] ml-0 md:ml-4  mt-2 rounded-md z-[999] px-3 py-5 flex flex-col gap-2 transition-all duration-300 ease-in-out`}>
+    <div className={`fixed  ${isOpen ? "w-[28%]  md:w-[15%] mt-[20vw] md:mt-2 px-3" : " w-[13%] md:w-[5%] mt-[20vw] md:mt-2"} min-h-screen bg-[#004D43] ml-0 md:ml-4  mt-2 rounded-md z-[999]  py-5 flex flex-col gap-2 transition-all duration-300 ease-in-out`}>
       
       {/* open close arrow */}
       <div className={`flex ${isOpen ? "justify-end" : "justify-center"} `}>

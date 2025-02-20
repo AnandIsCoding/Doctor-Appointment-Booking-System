@@ -20,7 +20,7 @@ const DoctorCard = ({ doctor }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-5 sm:w-full md:w-72 group relative z-[10] ">
+    <div className="bg-white rounded-2xl shadow-lg md:p-5 w-[47.5%]  lg:w-72 md:w-60 group relative z-[10] ">
       {/* Doctor Image */}
       <div className="w-full min-h-[5vw] rounded-2xl overflow-hidden group bg-green-700 ">
         <img
@@ -31,13 +31,13 @@ const DoctorCard = ({ doctor }) => {
       </div>
 
       {/* Doctor Details */}
-      <h2 className="text-lg font-bold text-center mt-3">{doctor.name}</h2>
+      <h3 className="text-sm font-semibold text-center mt-3">{doctor.name}</h3>
       <p className="text-gray-500 text-center">{doctor.specialization}</p>
 
       {/* Experience & Fee */}
       <div className="flex justify-between mt-3 text-sm">
         <p className="text-gray-600">Experience: {doctor.experience}</p>
-        <p className="font-semibold text-[#004D43]">{doctor.consultationFee}</p>
+        <p className="font-semibold text-[#004D43]"> {doctor.consultationFee}</p>
       </div>
 
       {/* Rating */}

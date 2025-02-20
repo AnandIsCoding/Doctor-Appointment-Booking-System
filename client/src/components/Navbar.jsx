@@ -12,7 +12,7 @@ function Navbar() {
   const user = useSelector(state => state.user)
   return (
     <div className='w-full flex justify-center z-[50]  '>
-      <div className="w-[92%] rounded-lg bg-[#004D43] flex justify-between mt-14  px-5 fixed ">
+      <div className="w-[92%] rounded-lg bg-[#004D43] flex justify-between mt-9  px-5 fixed ">
       <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-xl md:text-2xl font-semibold px-4 md:px-10 py-4 text-white cursor-pointer">
       सेवा
       </div>

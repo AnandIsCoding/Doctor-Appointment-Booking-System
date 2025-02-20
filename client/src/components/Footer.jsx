@@ -2,11 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-10">
+    <footer className="bg-black text-white py-10 rounded-t-[9vw]">
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-6">
         {/* Patient Care Section */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">Patient Care</h3>
+        <div className="md:pl-14">
+          <h3 className="text-lg font-bold mb-4 ">Patient Care</h3>
           <ul className="space-y-2 text-sm">
             <li>Find A Doctor</li>
             <li>Medical Services</li>
@@ -61,7 +61,7 @@ function Footer() {
         </div>
 
         {/* Corporate Section */}
-        <div>
+        <div className="md:pl-14">
           <h3 className="text-lg font-bold mb-4">Corporate</h3>
           <ul className="space-y-2 text-sm">
             <li>Company Overview</li>
