@@ -68,7 +68,7 @@ function AnnouncementSection() {
       {/* Second Div - Announcement Box with Auto Scrolling */}
       <div
         ref={scrollRef}
-        className="w-[40%] md:w-1/2  md:p-6 mr-10 bg-[#004D43]  text-white shadow-lg rounded-lg h-32 md:h-64 overflow-y-auto "
+        className="w-[40%] md:w-1/2  md:p-6 mr-10 bg-[#cdf5ec]  text-black shadow-lg rounded-lg h-32 md:h-64 overflow-y-auto "
       >
         <h3 className="text-xl font-bold"> Announcements</h3>
         <ul className="mt-4 space-y-2">
@@ -88,7 +88,7 @@ function AnnouncementSection() {
   "Global healthcare ",
   "New maternity care"
 ].map((announcement, index) => (
-            <li key={index} className="py-1 border-b border-white/30">
+            <li key={index} className="py-1 border-b border-white">
               📢 {announcement}
             </li>
           ))}

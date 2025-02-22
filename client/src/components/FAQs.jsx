@@ -39,7 +39,7 @@ function FAQs() {
             <div
               key={index}
               onClick={() => handleOpen(index)}
-              className=" border border-green-100 rounded-lg p-4 w-full cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg"
+              className=" border border-green-100 bg-white rounded-lg p-4 w-full cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg"
             >
               {/* FAQ Title */}
               <div className="flex justify-between items-center">

@@ -8,7 +8,7 @@ function MultiStepDescription() {
   return (
     <div className="w-full mt-5 md:px-10">
       {/* Buttons for toggling content */}
-      <div className="flex flex-wrap gap-5 md:gap-3 justify-between border-2  border-green-100 p-2 md:p-5  rounded-lg shadow-md">
+      <div className="flex flex-wrap gap-5 md:gap-3 justify-between border-2 bg-white border-green-100 p-2 md:p-5  rounded-lg shadow-md">
         {multiStepData.map((item) => (
           <button
             onClick={() => setShowText(item.id)}

@@ -8,7 +8,7 @@ import MultiStepDescription from '../components/MultiStepDescription'
 
 function Home() {
   return (
-    <div >
+    <div className="">
       <Navbar/>
       {/* sticker */}
       <div
@@ -23,6 +23,7 @@ function Home() {
           <h1 className='text-white bg-[red] text-xl font-medium'>N</h1>
           <h1 className='text-white bg-[red] text-xl font-medium'>C</h1>
           <h1 className='text-white bg-[red] text-xl font-medium'>Y</h1>
+          <h1 className='text-white bg-[red] text-xl font-medium'>🚑</h1>
         </div>
 
 

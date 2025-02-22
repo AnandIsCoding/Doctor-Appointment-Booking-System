@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
 
+body {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  box-sizing: border-box; /* Includes padding & border in total size */
+  background-color: white; /* Base background color */
 
-body{
-    margin: 0;
-    padding:0;
-    background-color:white;
-    width:100%;
-    box-sizing: border-box;
+  /* Grid pattern background */
+  background-image: 
+      linear-gradient(to right, #0202020a 1px, transparent 0.5px),
+      linear-gradient(to bottom, #3d3d3d0a 1px, transparent 0.5px);
+  background-size: 14px 24px; /* Grid spacing */
 }
+
+html, body {
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+
+
 
 *{
   font-family:gilroy;

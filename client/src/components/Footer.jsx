@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-10 rounded-t-[9vw]">
+    <footer className="bg-[#9af3de] text-black pt-10 rounded-t-[9vw]">
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-6">
         {/* Patient Care Section */}
         <div className="md:pl-14">
@@ -117,7 +117,7 @@ function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="text-center mt-10 text-sm border-t border-white pt-5">
+      <div className="text-center mt-10 text-sm border-t border-white bg-black text-white py-5">
         <p>&copy; 2025 Seva Hospitals. All Rights Reserved.</p>
       </div>
     </footer>

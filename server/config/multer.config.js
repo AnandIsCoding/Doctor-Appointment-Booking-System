@@ -18,6 +18,7 @@ export default upload;
 
 //  notes :
 //  Multer is a middleware for handling file uploads in Node.js with Express. It allows users to upload images, PDFs, and other files to your server.
+//Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
 
 // Inside diskStorage:
 // filename: function (req, file, cb) { ... }

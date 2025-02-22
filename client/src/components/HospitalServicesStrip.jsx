@@ -4,22 +4,22 @@ import { FaAmbulance, FaUserMd, FaBriefcaseMedical, FaClock } from "react-icons/
 // Array to store details of the hospital services with uniform length
 const hospitalServices = [
   {
-    icon: <FaAmbulance size={38} aria-label="Emergency Services Icon" className="text-green-800 mt-3" />,
+    icon: <FaAmbulance size={38} aria-label="Emergency Services Icon" className="text-[#27DFB3] mt-3" />,
     title: "24/7 Emergency Care",
     description: "Quick ambulance service, always on call",
   },
   {
-    icon: <FaUserMd size={38} aria-label="Specialist Doctors Icon" className="text-green-800 mt-3" />,
+    icon: <FaUserMd size={38} aria-label="Specialist Doctors Icon" className="text-[#27DFB3] mt-3" />,
     title: "Expert Medical Team",
     description: "Top doctors providing trusted healthcare",
   },
   {
-    icon: <FaBriefcaseMedical size={38} aria-label="Advanced Treatment Icon" className="text-green-800 mt-3" />,
+    icon: <FaBriefcaseMedical size={38} aria-label="Advanced Treatment Icon" className="text-[#27DFB3] mt-3" />,
     title: "Modern Treatments",
     description: "Latest technology & advanced procedures",
   },
   {
-    icon: <FaClock size={38} aria-label="24/7 Support Icon" className="text-green-800 mt-3" />,
+    icon: <FaClock size={38} aria-label="24/7 Support Icon" className="text-[#27DFB3] mt-3" />,
     title: "24/7 Patient Support",
     description: "Round-the-clock care for every patient",
   },

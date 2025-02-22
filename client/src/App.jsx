@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <div onContextMenu={disableContextMenu} className="w-screen scroll-smooth ">
+    <div onContextMenu={disableContextMenu} className="w-screen scroll-smooth  ">
       <Strip />
       <Suspense
         // Fallback loader while components are loading

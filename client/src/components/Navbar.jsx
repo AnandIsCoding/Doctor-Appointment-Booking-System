@@ -12,8 +12,8 @@ function Navbar() {
   const user = useSelector(state => state.user)
   return (
     <div className='w-full flex justify-center z-[50]  '>
-      <div className="w-[92%] rounded-lg bg-[#004D43] flex justify-between mt-9  px-5 fixed ">
-      <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-xl md:text-2xl font-semibold px-4 md:px-10 py-4 text-white cursor-pointer">
+      <div className="w-[98%] rounded-lg bg-[#18cca2]  flex justify-between mt-8  px-5 fixed ">
+      <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-xl md:text-2xl font-semibold px-4 md:px-10 py-4 text-black cursor-pointer">
       सेवा
       </div>
 
@@ -46,9 +46,9 @@ function Navbar() {
     </div>
 
     {!openPanel ? (
-            <GiHamburgerMenu size={30} onClick={()=> setOpenpanel(prev => !prev)} className="mr-4 mt-4 text-white block md:hidden cursor-pointer" />
+            <GiHamburgerMenu size={30} onClick={()=> setOpenpanel(prev => !prev)} className="mr-4 mt-4 text-black block md:hidden cursor-pointer" />
           ) : (
-            <FaWindowClose size={30} onClick={()=> setOpenpanel(prev => !prev)} className="font-extrabold mt-4 mr-4 block md:hidden cursor-pointer text-white z-[999]" />
+            <FaWindowClose size={30} onClick={()=> setOpenpanel(prev => !prev)} className="font-extrabold mt-4 mr-4 block md:hidden cursor-pointer text-black z-[999]" />
           )}
 
     </div>
@@ -57,20 +57,20 @@ function Navbar() {
           
           
           <div
-          className={` sm:w-[45%] w-[45%]    py-7 text-white bg-[#004D43] ${
+          className={` sm:w-[45%] w-[45%]    py-7 text-white bg-[#17c9a0] ${
             !openPanel ? "hidden" : "fixed right-4 top-30 leading-1 px-6 flex flex-col gap-4 rounded-lg z-[999]"
           } `}
         >
            <NavLink onClick={()=> setOpenpanel(prev => !prev)} to="/" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
           Seva Home
         </NavLink>
-           <NavLink to="/doctors" duration={3000}  className="text-xl text-white font-semibold  cursor-pointer ">
+           <NavLink to="/doctors" duration={3000}  className="text-xl font-semibold  cursor-pointer ">
           Doctors
         </NavLink>
-        <NavLink to="/services" duration={2000} className="text-xl text-white font-semibold  cursor-pointer ">
+        <NavLink to="/services" duration={2000} className="text-xl  font-semibold  cursor-pointer ">
           Services
         </NavLink>
-        <NavLink to='/contact'  className="text-xl font-semibold text-white cursor-pointer   ">
+        <NavLink to='/contact'  className="text-xl font-semibold  cursor-pointer   ">
           Contact
         </NavLink>
         <NavLink
