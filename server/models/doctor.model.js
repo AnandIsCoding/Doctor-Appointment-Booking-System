@@ -7,6 +7,7 @@
 //     qualification: "MBBS, MD (Cardiology)",
 //     contact: "+91 9876543210",
 //     email: "dr.rajesh@example.com",
+//     password: "password@example.com"
 //     location: "New Delhi, India",
 //     availability: true/false,
 //     consultationFee: "₹800",
@@ -70,7 +71,7 @@ const doctorSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function (v) {
-        return /^\+\d{1,15}$/.test(v);
+        return /^\d{10}$/.test(v);
       },
       message: "Invalid phone number format",
     },
@@ -86,6 +87,17 @@ const doctorSchema = new mongoose.Schema({
       message: "Invalid email format",
     },
   },
+ password: {
+    type: String,
+    required: true,
+    validate: {
+        validator: function (v) {
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(v);
+        },
+        message: "Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%*?&)."
+    }
+}
+,
   location: {
     type: String,
     required: true,
