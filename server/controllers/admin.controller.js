@@ -1,7 +1,7 @@
 import chalk from "chalk";
-import { v2 as Cloudinary } from "cloudinary";
 import doctorModel from "../models/doctor.model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 // import helperfunction
 import {
@@ -43,24 +43,32 @@ export const registerDoctorController = async (req, res) => {
       !about ||
       !availability
     ) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          error: "Missing required field",
-          message: "Missing Required Field",
-        });
+      return res.status(400).json({
+        success: false,
+        error: "Missing required field",
+        message: "Missing Required Field",
+      });
     }
+    
+    // 🔹 Password Validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
+    if (!passwordRegex.test(password)) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid password format",
+        message:
+          "Password must be at least 5 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%*?&).",
+      });
+    }
+
     // //check if doctor with the same email already exists
     const doctorWithSameEmailExist = await doctorModel.findOne({ email });
     if (doctorWithSameEmailExist) {
-      return res
-        .status(409)
-        .json({
-          success: false,
-          error: "Doctor already exists",
-          message: "Doctor already exists",
-        });
+      return res.status(409).json({
+        success: false,
+        error: "Doctor already exists",
+        message: "Doctor already exists",
+      });
     }
 
     // //file validation
@@ -69,13 +77,11 @@ export const registerDoctorController = async (req, res) => {
 
     // if fileType is not supported
     if (!isFileTypeSupported(fileType, supportedTypes)) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Invalid File type only jpg jpeg and png supported",
-          error: "Invalid File type only jpg jpeg and png supported",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Invalid File type only jpg jpeg and png supported",
+        error: "Invalid File type only jpg jpeg and png supported",
+      });
     }
 
     //if file type supported truw than only further code execute
@@ -115,17 +121,47 @@ export const registerDoctorController = async (req, res) => {
       // Extract validation messages
       const messages = Object.values(error.errors).map((err) => err.message);
       console.error(chalk.bgRed("Validation Error =>>>"), messages);
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Validation Error",
-          error: messages[0],
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Validation Error",
+        error: messages[0],
+      });
     }
     console.error(
       chalk.bgRed(
         "Error in registerDoctorController in admin.controller.js ====>> ",
+        error.message
+      )
+    );
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+export const loginAdminController = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    //check if is password undefined
+    // console.log(email + " " + password);
+    if (
+      email !== process.env.ADMIN_EMAIL ||
+      password !== process.env.ADMIN_PASSWORD
+    ) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials" });
+    }
+
+    //create a jwt token nd add it to cookie, and send to user
+    const admintoken = jwt.sign({email}, process.env.SECRET_KEY,  { expiresIn: "8d" });
+    return res
+      .status(200)
+      .json({ success: true, message: "Admin Login Successfull", admintoken });
+  } catch (error) {
+    console.error(
+      chalk.bgRed(
+        "Error in loginAdminController in admin.controller.js ====>> ",
         error.message
       )
     );

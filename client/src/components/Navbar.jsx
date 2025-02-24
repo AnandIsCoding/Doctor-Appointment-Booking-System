@@ -14,18 +14,18 @@ function Navbar() {
     <div className='w-full flex justify-center z-[50]  '>
       <div className="w-[98%] rounded-lg bg-[#18cca2]  flex justify-between mt-8  px-5 fixed ">
       <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-xl md:text-2xl font-semibold px-4 md:px-10 py-4 text-black cursor-pointer">
-      सेवा
+      Seva🚑
       </div>
 
       <div className=" h-full  justify-between gap-4  pt-4 hidden md:flex">
-        <NavLink to="/doctors" duration={3000}  className="text-lg text-white font-semibold  cursor-pointer ">
+        <NavLink to="/doctors" duration={3000}  className="text-lg text-black font-semibold  cursor-pointer ">
           Doctors
         </NavLink>
        
-        <NavLink to="/services" duration={2000} className="text-lg text-white font-semibold  cursor-pointer ">
+        <NavLink to="/services" duration={2000} className="text-lg text-black font-semibold  cursor-pointer ">
           Services
         </NavLink>
-        <NavLink to='/contact'  className="text-lg font-semibold text-white cursor-pointer   ">
+        <NavLink to='/contact'  className="text-lg font-semibold text-black cursor-pointer   ">
           Contact
         </NavLink>
         

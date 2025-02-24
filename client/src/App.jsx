@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios'
 
 // Lazy-loaded components
 const Strip = lazy(() => import("./components/Strip"));
@@ -15,10 +16,14 @@ const BookAppointment = lazy(() => import("./pages/BookAppointment"));
 const MyAppointments = lazy(() => import("./pages/MyAppointments"));
 const Signup = lazy(() => import("./pages/Signup"));
 const DoctorDetails = lazy(() => import("./pages/DoctorDetails"));
+
+import {setDoctors} from '../src/redux/slices/doctorSlice'
+
 function App() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const location = useLocation();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (!user && location.pathname.startsWith("/patient")) {
@@ -29,6 +34,22 @@ function App() {
   const disableContextMenu = (event) => {
     event.preventDefault();
   };
+
+  const fetchAllDoctors = async() =>{
+    // Fetch all doctors from API
+    try {
+      const res = await axios.get('http://localhost:3000/api/v1/doctor/alldoctors')
+      if(res.data.success){
+        dispatch(setDoctors(res.data.data))
+      }
+    } catch (error) {
+      console.log('Error in fetching all doctors api in APP.jsx ==> ',error)
+    }
+  }
+
+  useEffect(()=>{
+    fetchAllDoctors()
+  },[])
 
   return (
     <div onContextMenu={disableContextMenu} className="w-screen scroll-smooth  ">

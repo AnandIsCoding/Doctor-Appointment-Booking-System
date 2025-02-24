@@ -20,13 +20,13 @@ const DoctorCard = ({ doctor }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg md:p-5 w-[47.5%]  lg:w-72 md:w-60 group relative z-[10] ">
+    <div className="bg-[#fefefe56] rounded-lg  md:p-2 w-[47.5%]  lg:w-70 md:w-60 group relative z-[10] ">
       {/* Doctor Image */}
       <div className="w-full min-h-[5vw] rounded-2xl overflow-hidden group bg-green-700 ">
         <img
           src={doctor.image}
           alt={doctor.name}
-          className="w-full h-full object-cover rounded-2xl transform group-hover:scale-110 transition duration-300"
+          className="w-full h-full object-cover rounded-lg transform group-hover:scale-110 transition duration-300"
         />
       </div>
 
@@ -55,7 +55,7 @@ const DoctorCard = ({ doctor }) => {
       {/* Book Appointment Button */}
       <button
         onClick={handleBookDoctorBtnClick}
-        className="mt-4 bg-[#004D43] text-white px-4 py-2 rounded-lg w-full hover:bg-[#27DFB3] hover:text-black hover:scale-105 transition cursor-pointer"
+        className="mt-4 bg-[#27DFB3] text-black px-4 py-2 rounded-lg w-full hover:bg-[#004D43] hover:text-white hover:scale-105 transition cursor-pointer"
       >
         Book Appointment
       </button>

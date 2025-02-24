@@ -34,7 +34,6 @@ const doctorSchema = new mongoose.Schema({
   required: [true, "Specialization is required"], // Custom required error message
   enum: {
     values: [
-      "All",
       "General Physician",
       "Cardiologist",
       "Neurologist",
@@ -89,13 +88,7 @@ const doctorSchema = new mongoose.Schema({
   },
  password: {
     type: String,
-    required: true,
-    validate: {
-        validator: function (v) {
-            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(v);
-        },
-        message: "Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%*?&)."
-    }
+    required: true
 }
 ,
   location: {

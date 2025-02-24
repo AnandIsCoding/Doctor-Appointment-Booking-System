@@ -12,7 +12,7 @@ function PatientNavbar() {
   return (
     
       <>
-        <div className={` w-full pr-6 z-[50] bg-[#004D43]  mt-3 px-4 ${isOpen ? "md:pl-[18%] ml-[20%]" : "md:pl-[10%] ml-[10%]"} flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-xl mr-4 fixed`}>
+        <div className={` w-fit pr-6 z-[50] md:bg-black shadow-2xl shadow-[#27DFB3] md:shadow-none    px-4  flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-md mr-4 absolute right-0 md:fixed`}>
       <div className=" h-full  justify-between   hidden md:flex gap-14">
         <NavLink to="/patient/book-appointment" duration={3000}  className="text-lg flex gap-2 text-white font-semibold  cursor-pointer ">
           Book Appointment {location.pathname == '/patient/book-appointment' && <h1>💡</h1>}
@@ -27,16 +27,16 @@ function PatientNavbar() {
     </div>
 
     {!openPanel ? (
-                    <GiHamburgerMenu size={30} onClick={()=> setOpenpanel(prev => !prev)} className="mr-1  text-white block md:hidden cursor-pointer" />
+                    <GiHamburgerMenu size={32} onClick={()=> setOpenpanel(prev => !prev)} className="  text-black block md:hidden cursor-pointer" />
                   ) : (
-                    <FaWindowClose size={30} onClick={()=> setOpenpanel(prev => !prev)} className="font-extrabold  mr-1 block md:hidden cursor-pointer text-white z-[999]" />
+                    <FaWindowClose size={32} onClick={()=> setOpenpanel(prev => !prev)} className="font-extrabold   block md:hidden cursor-pointer text-black z-[999]" />
                   )}
 
     </div>
 
 
        <div
-              className={` sm:w-[45%] w-[65%]  z-[999]  py-7 mt-2 text-white bg-[#004D43] ${
+              className={` sm:w-[45%] w-[65%]  z-[999]  py-7 mt-2 text-white bg-black ${
                 !openPanel ? "hidden" : "fixed right-4 top-30  px-6 flex flex-col gap-4 rounded-lg"
               } `}
             >
