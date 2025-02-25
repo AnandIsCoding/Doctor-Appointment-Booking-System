@@ -1,8 +1,10 @@
 import express from 'express'
-import { getAllDoctorsController } from '../controllers/doctor.controller.js'
+import { getAllDoctorsController, getDoctorByIdController } from '../controllers/doctor.controller.js'
 
 const doctorRouter = express.Router()
 
-doctorRouter.get('/alldoctors',getAllDoctorsController)
+doctorRouter.get('/alldoctors', getAllDoctorsController)
+doctorRouter.get('/:id', getDoctorByIdController);
+
 
 export default doctorRouter
