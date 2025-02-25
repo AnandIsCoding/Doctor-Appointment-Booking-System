@@ -18,6 +18,7 @@ const Signup = lazy(() => import("./pages/Signup"));
 const DoctorDetails = lazy(() => import("./pages/DoctorDetails"));
 
 import {setDoctors} from '../src/redux/slices/doctorSlice'
+import toast from "react-hot-toast";
 
 function App() {
   const navigate = useNavigate();
@@ -41,8 +42,12 @@ function App() {
       const res = await axios.get('http://localhost:3000/api/v1/doctor/alldoctors')
       if(res.data.success){
         dispatch(setDoctors(res.data.data))
+      }else{
+        toast.error(res.data.message)
+        console.log('Error in fetching all doctors api in APP.jsx ==> ',res.data.message)
       }
     } catch (error) {
+      toast.error(error.message)
       console.log('Error in fetching all doctors api in APP.jsx ==> ',error)
     }
   }

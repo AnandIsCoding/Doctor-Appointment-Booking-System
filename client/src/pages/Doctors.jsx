@@ -19,7 +19,7 @@ function Doctors() {
       <Navbar />
 
       {/* Categories Selection */}
-      <div className="w-full md:justify-center mb-3 mt-24 md:pl-[75vw] py-2 text-white flex gap-2 overflow-x-scroll relative">
+      <div className="w-full md:justify-center mb-3 mt-28 md:pl-[75vw] py-2 text-white flex gap-2 overflow-x-scroll relative">
         {[
           "All",
           "General Physician",

@@ -10,6 +10,7 @@ import connectToDb from './config/database.config.js'
 import connectToCloudinary from './config/cloudinary.config.js'
 import adminRouter from './routes/admin.routes.js'
 import doctorRouter from './routes/doctor.routes.js'
+import userRouter from './routes/user.routes.js'
 
 // Load environment variables from .env file
 dotenv.config()
@@ -48,6 +49,7 @@ app.use(cors(corsOptions));
 //all api endpoints
 app.use('/api/v1/admin', adminRouter)
 app.use('/api/v1/doctor', doctorRouter)
+app.use('/api/v1/user',userRouter)
 
 
 

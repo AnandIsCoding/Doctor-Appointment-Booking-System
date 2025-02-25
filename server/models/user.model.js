@@ -10,28 +10,29 @@
 //     bloodGroup: "A+",
 //   }
 
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        min: [3, "Doctor Name must be at least 3 characters long"],
-        max: [50, "Doctor Name must less than 50 characters long"],
-      },
-    image: {
-        type: String,
-        default:"https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png"
-    },
-    contact: {
+  name: {
     type: String,
-    default:'9876543210',
+    required: true,
+    min: [3, "Doctor Name must be at least 3 characters long"],
+    max: [50, "Doctor Name must less than 50 characters long"],
+  },
+  image: {
+    type: String,
+    default:
+      "https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png",
+  },
+  contact: {
+    type: String,
+    default: "1234567890",
     validate: {
       validator: function (v) {
-        return /^\+\d{1,15}$/.test(v);
+        return /^(\+?\d{10,15})$/.test(v);
       },
       message: "Invalid phone number format",
-    },
+    }, 
   },
   email: {
     type: String,
@@ -47,27 +48,26 @@ const userSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true,
+    required: false,
   },
-  password:{
-    type:String,
-    required:true
+  password: {
+    type: String,
+    required: true,
   },
-  gender:{
-    tye:String,
-    enum:{
-        values:['male', 'female', 'others'],
-        message:'Please select male female or others',
-        default:'Not Selected'
+  gender: {
+    type: String,
+    enum: {
+      values: ["male", "female", "others"], // Allowed values
+      message: "Please select male, female, or others",
     },
-    required:true
+    default: "Not Selected", // Moved outside enum
   },
-  dob:{
-    type:String,
-    default:'Not Selected'
-  }
+  dob: {
+    type: String,
+    default: "Not Selected",
+  },
+});
 
-})
+const userModel = mongoose.models.User || mongoose.model("User", userSchema);
 
-const userModel = mongoose.models.User || mongoose.models('User', userSchema)
-
-export default userModel
+export default userModel;

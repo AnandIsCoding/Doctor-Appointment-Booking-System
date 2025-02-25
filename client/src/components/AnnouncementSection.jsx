@@ -68,7 +68,7 @@ function AnnouncementSection() {
       {/* Second Div - Announcement Box with Auto Scrolling */}
       <div
         ref={scrollRef}
-        className="w-[40%] md:w-1/2  md:p-6 mr-10 bg-[#cdf5ec]  text-black shadow-lg rounded-lg h-32 md:h-64 overflow-y-auto "
+        className="w-[40%] md:w-1/2  md:p-6 mr-10 bg-[#A3D1C6]  text-black shadow-lg rounded-lg h-32 md:h-64 overflow-y-auto "
       >
         <h3 className="text-xl font-bold"> Announcements</h3>
         <ul className="mt-4 space-y-2">

@@ -12,9 +12,9 @@ function Navbar() {
   const user = useSelector(state => state.user)
   return (
     <div className='w-full flex justify-center z-[50]  '>
-      <div className="w-[98%] rounded-lg bg-[#18cca2]  flex justify-between mt-8  px-5 fixed ">
-      <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-xl md:text-2xl font-semibold px-4 md:px-10 py-4 text-black cursor-pointer">
-      Seva🚑
+      <div className="w-[98%] rounded-lg bg-white border-2 border-black z-100  flex justify-between mt-8  px-5 fixed ">
+      <div onClick={()=>navigate('/')} className=" w-[20%] md:w-[48%] h-full text-lg md:text-2xl font-semibold px-4 md:px-10 py-4 text-black cursor-pointer">
+      Seva 
       </div>
 
       <div className=" h-full  justify-between gap-4  pt-4 hidden md:flex">
@@ -32,7 +32,7 @@ function Navbar() {
         <NavLink
   rel="noopener noreferrer"
   to={`${user  ? '/patient' : '/signup-login' }`}
-  className="text-xl font-semibold cursor-pointer bg-white text-black px-5 py-2  animate-bounce duration-500 flex items-center rounded-lg"
+  className="text-xl font-semibold cursor-pointer bg-black text-white px-5 py-2  animate-bounce duration-500 flex items-center rounded-lg"
 >
  {user ? 'Dashboard' : ' Signup'}
 </NavLink>
