@@ -66,6 +66,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "Not Selected",
   },
+  age:{
+    type:Number,
+    default:18
+  }
 });
 
 const userModel = mongoose.models.User || mongoose.model("User", userSchema);

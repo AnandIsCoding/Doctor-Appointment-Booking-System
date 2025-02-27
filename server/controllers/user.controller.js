@@ -7,11 +7,13 @@ import {
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+
 export const registerUserController = async (req, res) => {
   try {
     const { name, email, password, age, gender } = req.body;
     const image = req.file;
 
+    
     if (!name || !email || !password || !age || !gender) {
       return res.status(400).json({
         success: false,
@@ -19,6 +21,7 @@ export const registerUserController = async (req, res) => {
         message: "Missing Required Field",
       });
     }
+   
 
     // 🔹 Password Validation
     const passwordRegex =
@@ -121,7 +124,7 @@ export const UserLoginController = async (req, res) => {
       return res
         .status(400)
         .json({ success: false, message: "Invalid Credentials" });
-    const matchPassword = bcrypt.compare(user.password, password);
+    const matchPassword = await bcrypt.compare(user.password, password);
     if (!matchPassword)
       return res
         .status(400)
