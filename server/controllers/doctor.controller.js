@@ -4,13 +4,11 @@ import chalk from "chalk";
 export const getAllDoctorsController = async (req, res) => {
   try {
     const alldoctors = await doctorModel.find();
-    res
-      .status(200)
-      .json({
-        success: true,
-        data: alldoctors,
-        message: "All Doctors Fetched Successfully",
-      });
+    res.status(200).json({
+      success: true,
+      data: alldoctors,
+      message: "All Doctors Fetched Successfully",
+    });
   } catch (error) {
     console.error(
       chalk.bgRed(
@@ -45,7 +43,11 @@ export const getDoctorByIdController = async (req, res) => {
 
     return res
       .status(200)
-      .json({ success: true, message: "Doctor Fetched by Id successfully ", doctor });
+      .json({
+        success: true,
+        message: "Doctor Fetched by Id successfully ",
+        doctor,
+      });
   } catch (error) {
     console.error(
       chalk.bgRed(

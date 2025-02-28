@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv' // Dotenv to load environment variables
 import chalk from 'chalk'   // Chalk for colored console logs
-
+import cookieParser from 'cookie-parser';
 
 // Import database connection configuration file
 import connectToDb from './config/database.config.js'
@@ -30,6 +30,9 @@ const PORT = process.env.SERVER_PORT || 7000
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+// cookie parser middleware
+app.use(cookieParser());
 
 
 // CORS configuration

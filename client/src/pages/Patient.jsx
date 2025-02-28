@@ -3,20 +3,27 @@ import PatientNavbar from "../components/PatientNavbar";
 import Sidebar from "../components/Sidebar";
 import sampleDoctors from "../utils/sampleDoctor";
 import DoctorCard from "../components/DoctorCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { addUser } from "../redux/slices/userSlice";
 
 function Patient() {
+  const dispatch = useDispatch()
   const isOpen = useSelector((state) => state.sidebar);
   const [editMode, setEditmode] = useState(false);
+  
+    const [isLoading, setIsloading] = useState(false);
+  
+  const user = useSelector(state => state.user)
   const [userDetails, setUserdetails] = useState({
-    name: "Anand Jha",
-    age: 21,
-    email: "anand@example.com",
-    contact: "9876543210",
-    address: "123 Main St, City, State, Zip",
-    gender: "male",
-    dob: "18/01/2004",
-    bloodGroup: "A+",
+    name: "",
+    age: "",
+    contact: "",
+    address: "",
+    gender: "",
+    dob: "",
+    bloodGroup: "",
   });
 
   const handleChange = (event) => {
@@ -27,13 +34,35 @@ function Patient() {
     }));
   };
 
-  const handleEditBtn = () => {
+  const handleEditBtn = async() => {
     setEditmode((prev) => !prev);
+    
   };
 
-  const handleSaveBtn = () => {
-    setEditmode((prev) => !prev);
+  const handleSaveBtn = async() => {
+     // Show loading toast
+     const loadingToast = toast.loading("Please Wait .... ");
+     setIsloading(true);
+    
     // save to database api call
+    try {
+      const res = await axios.patch('http://localhost:3000/api/v1/user/profile/update', userDetails , {withCredentials:true})
+      if(res.data.success){
+        dispatch(addUser(res?.data?.user));
+        toast.success(res?.data?.message);
+        setEditmode((prev) => !prev);
+      }else{
+        toast.error(res?.data?.message || res?.data?.error || 'An unexpected error occured')
+      }
+    } catch (error) {
+      toast.error(
+        error?.message || "An unexpected error occurred!"
+      );
+      console.log(error)
+    }finally {
+      setIsloading(false);
+      toast.dismiss(loadingToast);
+    }
   };
 
   return (
@@ -67,15 +96,18 @@ function Patient() {
             />
           ) : (
             <p className="text-lg">
-              Name : <span className="text-green-700">{userDetails.name}</span>
+              Name : <span className="text-green-700">{user?.name}</span>
             </p>
           )}
 
           {/* gender */}
           {editMode ? (
-            <select onChange={(event)=> setUserdetails(
+            <select value={userDetails.gender || ""} onChange={(event)=> setUserdetails(
               prev => ({...prev, gender:event.target.value})
             )} className="md:w-[40%] py-3 border-2 border-green-700 rounded-lg px-5 bg-inherit">
+            <option value="" disabled>
+                      Select Gender
+                    </option>
                <option value='male'>Male</option>
                <option value='female'>Female</option>
                <option value='others'>Others</option>
@@ -105,18 +137,11 @@ function Patient() {
 
           {/* Email */}
           {editMode ? (
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={userDetails?.email}
-              onChange={handleChange} // ✅ Added onChange
-              className="border-2 border-green-700 bg-transparent outline-none rounded-lg px-5 py-3 w-full"
-            />
+           ''
           ) : (
             <p className="text-lg">
               Email id :{" "}
-              <span className="text-green-700">{userDetails.email}</span>
+              <span className="text-green-700">{user?.email}</span>
             </p>
           )}
 
@@ -133,7 +158,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Phone no :{" "}
-              <span className="text-green-700">{userDetails.contact}</span>
+              <span className="text-green-700">{user.contact}</span>
             </p>
           )}
 
@@ -150,7 +175,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Blood Group :{" "}
-              <span className="text-green-700">{userDetails.bloodGroup}</span>
+              <span className="text-green-700">{user.bloodGroup}</span>
             </p>
           )}
 
@@ -166,7 +191,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Date of Birth :{" "}
-              <span className="text-green-700">{userDetails.dob}</span>
+              <span className="text-green-700">{user.dob}</span>
             </p>
           )}
 
@@ -175,6 +200,7 @@ function Patient() {
             <input
               type="text"
               name="address"
+              placeholder="Address"
               value={userDetails?.address}
               onChange={handleChange} // ✅ Added onChange
               className="border-2 border-green-700 bg-transparent outline-none rounded-lg px-5 py-3 w-full"
@@ -182,7 +208,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Address :{" "}
-              <span className="text-green-700">{userDetails.address}</span>
+              <span className="text-green-700">{user.address}</span>
             </p>
           )}
 

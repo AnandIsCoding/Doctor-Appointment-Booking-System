@@ -19,12 +19,34 @@ const DoctorDetails = lazy(() => import("./pages/DoctorDetails"));
 
 import {setDoctors} from '../src/redux/slices/doctorSlice'
 import toast from "react-hot-toast";
+import { addUser } from "./redux/slices/userSlice";
 
 function App() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const location = useLocation();
   const dispatch = useDispatch()
+
+  // fetch profile information and save user in user slice store, this will make sure to suthenticate user and allow to go to dashboard
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/api/v1/user/profile/view`, {
+          withCredentials: true,
+        });
+        if (res.data.success) {
+          dispatch(addUser(res?.data?.user));
+        }else{
+          toast.error(res?.data?.message)
+        }
+      } catch (error) {
+        //toast.error(error?.response?.data?.message);
+        //console.log(error);
+      }
+    };
+
+    fetchUser();
+  }, [dispatch, navigate]);
 
   useEffect(() => {
     if (!user && location.pathname.startsWith("/patient")) {

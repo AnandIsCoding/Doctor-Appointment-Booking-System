@@ -69,6 +69,14 @@ const userSchema = new mongoose.Schema({
   age:{
     type:Number,
     default:18
+  },
+  bloodGroup:{
+    type:'String'
+  },
+  address:{
+    type:String,
+    min: [3, "Address must be at least 3 characters long"],
+    max: [100, "Address must less than 100 characters long"],
   }
 });
 

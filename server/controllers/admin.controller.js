@@ -49,9 +49,10 @@ export const registerDoctorController = async (req, res) => {
         message: "Missing Required Field",
       });
     }
-    
+
     // 🔹 Password Validation
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
     if (!passwordRegex.test(password)) {
       return res.status(400).json({
         success: false,
@@ -154,7 +155,9 @@ export const loginAdminController = async (req, res) => {
     }
 
     //create a jwt token nd add it to cookie, and send to user
-    const admintoken = jwt.sign({email}, process.env.SECRET_KEY,  { expiresIn: "8d" });
+    const admintoken = jwt.sign({ email }, process.env.SECRET_KEY, {
+      expiresIn: "8d",
+    });
     return res
       .status(200)
       .json({ success: true, message: "Admin Login Successfull", admintoken });

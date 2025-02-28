@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from '../redux/slices/sidebarSlice';
 import { LuSquareArrowLeft, LuSquareArrowRight } from "react-icons/lu";
 import { AiOutlineLogout } from "react-icons/ai";
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { addUser } from '../redux/slices/userSlice';
 
 function Sidebar() {
 
@@ -11,9 +14,37 @@ function Sidebar() {
   const location = useLocation()
   const dispatch = useDispatch()
   const isOpen = useSelector(state => state.sidebar)
+  const user = useSelector(state => state.user)
+
+      const [isLoading, setIsloading] = useState(false);
 
   const handleSidebarToggle = () => {
     dispatch(toggle())
+  }
+
+  const handleLogout = async() =>{
+    // Show loading toast
+    const loadingToast = toast.loading("Please Wait .... ");
+    setIsloading(true);
+   
+    try {
+       const res = await axios.delete('http://localhost:3000/api/v1/user/logout',{withCredentials:true})
+       if(res.data.success){
+        toast.success("Logged out successfully!")
+        navigate('/')
+        dispatch(addUser(null))
+       }else{
+        toast.error(res.data.error)
+       }
+    } catch (error) {
+      toast.error(
+        error?.response?.data?.message || "An unexpected error occurred!"
+      );
+      console.log(error)
+    }finally {
+      setIsloading(false);
+      toast.dismiss(loadingToast);
+    }
   }
 
   return (
@@ -35,11 +66,11 @@ function Sidebar() {
       </div>
 
       {/* image icon */}
-      <div className="w-[10vw] h-[10vw] md:w-[2.5vw] md:h-[2.5vw] bg-violet-100 ml-auto mr-auto rounded-full">
+      <div className={` ${isOpen ? 'w-[15vw] h-[15vw] md:w-[5vw] md:h-[5vw]' : 'w-[7vw] h-[7vw] md:w-[3vw] md:h-[3vw] '}  bg-violet-100 ml-auto mr-auto rounded-full`}>
         <img
-          src="https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png"
+          src={user ? user.image : "https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png"}
           alt="user_image"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-full"
         />
       </div>
 
@@ -57,9 +88,10 @@ function Sidebar() {
       <div className="mt-auto mb-28 md:mb-14">
         {
           isOpen ? 
-            <button className="w-full bg-white px-2 py-2 rounded-lg cursor-pointer">Logout</button> 
+            <button onClick={handleLogout} className="w-full bg-white px-2 py-2 rounded-lg cursor-pointer">Logout</button> 
           : 
             <AiOutlineLogout
+            onClick={handleLogout}
               size={30}
               className="text-white cursor-pointer w-full"
             />
