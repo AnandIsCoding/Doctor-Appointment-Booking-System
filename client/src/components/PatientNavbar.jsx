@@ -12,7 +12,7 @@ function PatientNavbar() {
   return (
     
       <>
-        <div className={` w-fit pr-6 z-[50] md:bg-black shadow-2xl shadow-[#27DFB3] md:shadow-none    px-4  flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-md mr-4 absolute right-0 md:fixed`}>
+        <div className={` w-fit pr-6 z-[50] md:bg-black    px-4  flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-md mr-4 absolute right-0 md:fixed`}>
       <div className=" h-full  justify-between   hidden md:flex gap-14">
         <NavLink to="/patient/book-appointment" duration={3000}  className="text-lg flex gap-2 text-white font-semibold  cursor-pointer ">
           Book Appointment {location.pathname == '/patient/book-appointment' && <h1>💡</h1>}

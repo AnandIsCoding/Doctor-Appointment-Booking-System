@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PatientNavbar from "../components/PatientNavbar";
 import Sidebar from "../components/Sidebar";
 import { useSelector } from "react-redux";
@@ -6,9 +6,47 @@ import MyAppointmentCard from "../components/myAppointmentCard";
 import sampleDoctors from "../utils/sampleDoctor";
 import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
+import axios, { all } from "axios";
 
 function MyAppointments() {
   const isOpen = useSelector((state) => state.sidebar);
+  const [allAppointments, setAllappointments] = useState([])
+  const [message, setMessage] = useState('')
+
+  const fetchAllAppointments = async () => {
+    try {
+      const {data} = await axios.get(`http://localhost:3000/api/v1/appointment/my-appointments`,{withCredentials:true});
+      // console.log(data)
+      setAllappointments(data.allappointments);
+    } catch (error) {
+      console.log(error)
+      toast.error("Failed to fetch appointments.");
+    } 
+  };
+
+  useEffect(() => {
+    fetchAllAppointments();
+  }, []);
+
+ 
+
+  const handleFeedbackSubmit = async() =>{
+    try {
+      if(message.length < 10) return toast.error('Please Enter feedback message of atleat length of 10-20💚')
+      //console.log('Message is -----> ',message)
+       // send feedback message to server
+       const {data} = await axios.post(`http://localhost:3000/api/v1/feedback/new`,{feedbackMessage:message},{withCredentials:true});
+       setShowFeedbackform(false);
+       setMessage('');
+       toast.success('Feedback submitted successfully! ')
+       fetchAllAppointments();
+    } catch (error) {
+      console.log('Error in feedback submission in myAppointmentcard: ', error.message)
+      toast.error('Error in feedback submission in myAppointmentcard, Wait...... ', error.message)
+    }
+  }
+
+  
 
   const [showFeedbackform, setShowFeedbackform] = useState(false);
   return (
@@ -23,7 +61,8 @@ function MyAppointments() {
           isOpen ? "md:pl-[18%]" : "md:pl-[5%]"
         } flex flex-wrap justify-center items-stretch gap-4`}
       >
-        {sampleDoctors.map((item, _) => {
+        {
+          allAppointments.length < 1 ? <h1 className="font-bold text-2xl text-green-500"> No Bookings Yet 🩺</h1> : allAppointments.map((item, _) => {
           return (
             <MyAppointmentCard
               doctor={item}
@@ -31,7 +70,8 @@ function MyAppointments() {
               key={item._id}
             />
           );
-        })}
+        })
+        }
 
 
 
@@ -51,12 +91,13 @@ function MyAppointments() {
             {/* Input Field */}
             <input
               type="text"
+              onChange={(event)=>setMessage(event.target.value)}
               placeholder="Write your feedback..."
               className="mt-4 px-4 h-[25vw] md:h-[15vw] bg-white py-2 w-full border-2 border-black rounded-lg focus:outline-none focus:border-gray-700"
             />
 
             {/* Submit Button with Hover Animation */}
-            <button onClick={()=> toast.error('Will be start accepting soon')} className="mt-4 w-full text-lg cursor-pointer px-6 py-2 bg-gray-900 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:bg-black">
+            <button onClick={handleFeedbackSubmit} className="mt-4 w-full text-lg cursor-pointer px-6 py-2 bg-gray-900 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:bg-black">
               Submit
             </button>
           </div>

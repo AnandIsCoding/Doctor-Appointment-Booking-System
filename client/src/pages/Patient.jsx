@@ -56,7 +56,7 @@ function Patient() {
       }
     } catch (error) {
       toast.error(
-        error?.message || "An unexpected error occurred!"
+        error.response?.data.message || "An unexpected error occurred!"
       );
       console.log(error)
     }finally {

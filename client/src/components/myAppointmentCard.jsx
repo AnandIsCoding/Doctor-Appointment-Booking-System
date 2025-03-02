@@ -2,23 +2,26 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const MyAppointmentCard = ({ doctor, setShowFeedbackform}) => {
+
+
+
   return (
-    <div className="md:w-[70%] flex items-center justify-between bg-white shadow-lg rounded-lg p-4 border border-gray-300">
+    <div className="md:w-[70%] flex items-center justify-between bg-white shadow-lg rounded-lg p-4 border border-gray-300 hover:bg-green-50">
       
       {/* Left Side - Doctor's Image & Details */}
       <div className="flex items-center gap-4">
         <img 
-          src={doctor.image} 
+          src={doctor.doctorData.image} 
           alt={doctor.name} 
           className="w-24 h-24 rounded-lg object-cover border-2 border-gray-400" 
         />
         <div>
-          <h2 className="text-lg font-semibold">{doctor.name}</h2>
-          <p className="text-gray-600">{doctor.specialization}</p>
-          <p className="text-gray-500">{doctor.experience} Experience</p>
-          <p className="text-gray-500">{doctor.qualification}</p>
-          <p className="text-gray-500">{doctor.location}</p>
-          <p className="text-green-600 font-semibold">₹{doctor.consultationFee}</p>
+          <h2 className="text-lg font-semibold">{doctor?.doctorData?.name}</h2>
+          <p className="text-gray-600">{doctor?.doctorData?.specialization}</p>
+          <p className="text-gray-500">{doctor?.doctorData?.experience} Experience</p>
+          <p className="text-gray-500">{doctor?.doctorData?.qualification}</p>
+          <p className="text-gray-500">{doctor?.doctorData?.location}</p>
+          <p className="text-green-600 font-semibold">₹{doctor?.doctorData?.consultationFee}</p>
         </div>
       </div>
 

@@ -48,11 +48,11 @@ function App() {
     fetchUser();
   }, [dispatch, navigate]);
 
-  useEffect(() => {
-    if (!user && location.pathname.startsWith("/patient")) {
-      navigate("/"); // Redirect unauthorized users
-    }
-  }, [user, navigate, location]);
+  // useEffect(() => {
+  //   if (!user && location.pathname.startsWith("/patient")) {
+  //     navigate("/"); // Redirect unauthorized users
+  //   }
+  // }, [user, navigate, location]);
 
   const disableContextMenu = (event) => {
     event.preventDefault();
