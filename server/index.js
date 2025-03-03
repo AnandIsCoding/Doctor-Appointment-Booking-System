@@ -14,6 +14,8 @@ import userRouter from './routes/user.routes.js'
 import appointmentRouter from './routes/appointment.routes.js';
 import feedbackRouter from './routes/feedback.routes.js'
 
+import swaggerDocs from './config/swagger.config.js';
+
 // Load environment variables from .env file
 dotenv.config()
 
@@ -35,6 +37,9 @@ app.use(express.urlencoded({extended:true}))
 
 // cookie parser middleware
 app.use(cookieParser());
+
+// Initialize Swagger
+swaggerDocs(app);
 
 
 // CORS configuration
