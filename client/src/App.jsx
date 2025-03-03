@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios'
@@ -26,6 +26,7 @@ function App() {
   const user = useSelector((state) => state.user);
   const location = useLocation();
   const dispatch = useDispatch()
+  const [loading, setLoading] = useState(true);
 
   // fetch profile information and save user in user slice store, this will make sure to suthenticate user and allow to go to dashboard
   useEffect(() => {
@@ -48,12 +49,19 @@ function App() {
     fetchUser();
   }, [dispatch, navigate]);
 
-  // useEffect(() => {
-  //   if (!user && location.pathname.startsWith("/patient")) {
-  //     navigate("/"); // Redirect unauthorized users
-  //   }
-  // }, [user, navigate, location]);
 
+  // authenticate user, instead of creating a HOF for redirect authentication
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500); // Assume  fetch user data within 500ms
+
+    if (!loading && !user && location.pathname.startsWith("/patient")) {
+      navigate("/"); // Redirect unauthorized users
+    }
+  }, [user, navigate, location,loading]);
+
+  
   const disableContextMenu = (event) => {
     event.preventDefault();
   };

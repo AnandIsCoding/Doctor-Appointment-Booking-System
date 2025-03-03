@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PatientNavbar from "../components/PatientNavbar";
 import Sidebar from "../components/Sidebar";
-import sampleDoctors from "../utils/sampleDoctor";
 import DoctorCard from "../components/DoctorCard";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -102,7 +101,7 @@ function Patient() {
 
           {/* gender */}
           {editMode ? (
-            <select value={userDetails.gender || ""} onChange={(event)=> setUserdetails(
+            <select value={userDetails?.gender || ""} onChange={(event)=> setUserdetails(
               prev => ({...prev, gender:event.target.value})
             )} className="md:w-[40%] py-3 border-2 border-green-700 rounded-lg px-5 bg-inherit">
             <option value="" disabled>
@@ -115,7 +114,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Gender :{" "}
-              <span className="text-green-700">{userDetails?.gender}</span>
+              <span className="text-green-700">{user?.gender}</span>
             </p>
           )}
 
@@ -131,7 +130,7 @@ function Patient() {
             />
           ) : (
             <p className="text-lg">
-              Age : <span className="text-green-700">{userDetails.age}</span>
+              Age : <span className="text-green-700">{user?.age}</span>
             </p>
           )}
 
@@ -158,7 +157,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Phone no :{" "}
-              <span className="text-green-700">{user.contact}</span>
+              <span className="text-green-700">{user?.contact}</span>
             </p>
           )}
 
@@ -175,7 +174,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Blood Group :{" "}
-              <span className="text-green-700">{user.bloodGroup}</span>
+              <span className="text-green-700">{user?.bloodGroup}</span>
             </p>
           )}
 
@@ -191,7 +190,7 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Date of Birth :{" "}
-              <span className="text-green-700">{user.dob}</span>
+              <span className="text-green-700">{user?.dob}</span>
             </p>
           )}
 

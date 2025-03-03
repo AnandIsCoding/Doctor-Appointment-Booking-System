@@ -22,7 +22,7 @@ const DoctorCard = ({ doctor }) => {
   return (
     <div className="bg-[#fefefe56] rounded-lg  md:p-2 w-[47.5%]  lg:w-70 md:w-60 group relative z-[10] ">
       {/* Doctor Image */}
-      <div className="w-full min-h-[5vw] rounded-2xl overflow-hidden group bg-green-700 ">
+      <div className="w-full min-h-[5vw] max-h-[30vw] md:max-h-[10vw]  rounded-2xl overflow-hidden group bg-green-700 ">
         <img
           src={doctor.image}
           alt={doctor.name}
@@ -37,7 +37,7 @@ const DoctorCard = ({ doctor }) => {
       {/* Experience & Fee */}
       <div className="flex justify-between mt-3 text-sm">
         <p className="text-gray-600">Experience: {doctor.experience}</p>
-        <p className="font-semibold text-[#004D43]"> {doctor.consultationFee}</p>
+        <p className="font-semibold text-[#004D43]">₹ {doctor.consultationFee}</p>
       </div>
 
       {/* Rating */}
@@ -55,7 +55,7 @@ const DoctorCard = ({ doctor }) => {
       {/* Book Appointment Button */}
       <button
         onClick={handleBookDoctorBtnClick}
-        className="mt-4 bg-[#27DFB3] text-black px-4 py-2 rounded-lg w-full  hover:text-white  transition cursor-pointer"
+        className="mt-4 bg-[#27DFB3] text-black px-4 py-2 rounded-lg w-full  hover:bg-[#8EC5FF]  transition cursor-pointer"
       >
         Book Appointment
       </button>

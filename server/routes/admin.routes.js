@@ -1,7 +1,7 @@
 import express from 'express';
 import upload from '../config/multer.config.js';
 
-import {loginAdminController, registerDoctorController} from '../controllers/admin.controller.js'
+import {addNewServiceController, getAllServicesController, loginAdminController, registerDoctorController} from '../controllers/admin.controller.js'
 import { authenticateAdmin } from '../middlewares/authenticateAdmin.middleware.js';
 
 
@@ -121,6 +121,10 @@ adminRouter.post('/login',loginAdminController)
  *         description: Unauthorized, admin authentication required.
  */
 adminRouter.post('/register-doctor', authenticateAdmin, upload.single('image'), registerDoctorController)
+
+adminRouter.post('/register-new-service', authenticateAdmin,upload.single('image'),addNewServiceController)
+
+adminRouter.get('/allservices',authenticateAdmin, getAllServicesController)
 
 
 export default adminRouter

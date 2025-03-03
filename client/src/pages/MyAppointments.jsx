@@ -3,7 +3,6 @@ import PatientNavbar from "../components/PatientNavbar";
 import Sidebar from "../components/Sidebar";
 import { useSelector } from "react-redux";
 import MyAppointmentCard from "../components/myAppointmentCard";
-import sampleDoctors from "../utils/sampleDoctor";
 import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
 import axios, { all } from "axios";

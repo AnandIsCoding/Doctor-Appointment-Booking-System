@@ -2,6 +2,7 @@ import express from 'express'
 import upload from '../config/multer.config.js';
 import {getUserProfileController, registerUserController, updateUserProfileController, UserLoginController, UserLogoutController } from '../controllers/user.controller.js';
 import { authUser } from '../middlewares/authenticateUser.middleware.js';
+import { getAllServicesController } from '../controllers/admin.controller.js';
 
 const userRouter = express.Router();
 
@@ -177,5 +178,58 @@ userRouter.patch('/profile/update',authUser, updateUserProfileController)
  *         description: Internal server error
  */
 userRouter.delete('/logout', UserLogoutController)
+
+
+/**
+ * @swagger
+ * /api/v1/user/allservices:
+ *   get:
+ *     summary: Get all available hospital services
+ *     description: Fetches a list of all hospital services, including their names and images.
+ *     tags:
+ *       - Services
+ *     responses:
+ *       200:
+ *         description: A list of services fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         example: "67c5f3feb3b15114a0dbec6f"
+ *                       name:
+ *                         type: string
+ *                         example: "Outpatient Services (OPD)"
+ *                       image:
+ *                         type: string
+ *                         example: "https://res.cloudinary.com/dm0rlehq8/image/upload/sample.jpg"
+ *                 message:
+ *                   type: string
+ *                   example: "All Services Fetched Successfully"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal Server Error"
+ */
+userRouter.get('/allservices',getAllServicesController)
 
 export default userRouter;

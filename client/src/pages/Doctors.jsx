@@ -19,32 +19,23 @@ function Doctors() {
       <Navbar />
 
       {/* Categories Selection */}
-      <div className="w-full md:justify-center mb-3 mt-28 md:pl-[75vw] py-2 text-white flex gap-2 overflow-x-scroll relative">
+      <div className="w-full md:justify-center mb-3 mt-28  py-2 text-white flex gap-2 overflow-x-scroll relative">
         {[
           "All",
-          "General Physician",
-          "Cardiologist",
-          "Neurologist",
-          "Orthopedic",
-          "Pediatrician",
-          "Dermatologist",
-          "Gynecologist",
-          "ENT Specialist",
-          "Psychiatrist",
-          "Dentist",
-          "Urologist",
-          "Oncologist",
-          "Endocrinologist",
-          "Nephrologist",
-          "Pulmonologist",
-          "Gastroenterologist",
-          "Others",
+  "General Physician",
+  "Cardiologist",
+  "Gynecologist",
+  "Neurologist",
+  "Orthopedic",
+  "Dermatologist",
+  "Dentist",
+  "Gastroenterologist",
         ].map((specialization) => (
           <button
             key={specialization}
             onClick={() => setSelectedSpecialization(specialization)}
-            className={`px-4 text-black bg-[#27DFB3] hover:scale-105 active:bg-blue-300 transition-all duration-300 py-2 rounded-lg text-xl flex-shrink-0 cursor-pointer ${
-              selectedSpecialization === specialization ? "bg-blue-400" : "hover:bg-blue-300"
+            className={`px-4 text-black border-1 border-[grey] hover:scale-105  transition-all duration-300 py-2 rounded-lg text-xl flex-shrink-0 cursor-pointer ${
+              selectedSpecialization === specialization ? "bg-[#FFDB52]" : "hover:bg-blue-300"
             }`}
           >
             {specialization}

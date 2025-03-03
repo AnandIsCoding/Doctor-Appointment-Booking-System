@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import doctorModel from "../models/doctor.model.js";
+import serviceModel from "../models/service.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -173,3 +174,93 @@ export const loginAdminController = async (req, res) => {
       .json({ success: false, message: "Internal Server Error" });
   }
 };
+
+
+
+export const addNewServiceController = async(req,res) =>{
+  try {
+    const {name} = req.body;
+    const image = req.file;
+    if(!name || !image){
+      return res.status(400).json({
+        success: false,
+        error: "Missing required field",
+        message: "Missing Required Field",
+      });
+    }
+     // check if service already registered
+     const serviceExists = await serviceModel.findOne({name})
+     if(serviceExists){
+      return res.status(409).json({
+        success: false,
+        error: "Service already exists",
+        message: "Service already exists",
+      });
+     }
+
+     // //file validation
+     const supportedTypes = ["jpeg", "jpg", "png"];
+     const fileType = image.originalname.split(".").pop().toLowerCase(); // If the filename has multiple dots (my.profile.png), it will correctly extract the last extension.
+
+     // if fileType is not supported
+    if (!isFileTypeSupported(fileType, supportedTypes)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid File type only jpg jpeg and png supported",
+        error: "Invalid File type only jpg jpeg and png supported",
+      });
+    }
+
+    //if file type supported truw than only further code execute
+    const response = await uploadFileToCloudinary(
+      image.path,
+      "Doctor-Appointment-Booking-System"
+    );
+
+    // create
+    const newService = await serviceModel.create({
+      name,image:response.secure_url
+    })
+    
+    res.status(201).json({
+      success: true,
+      message: "Service registered successfully",
+      service:newService
+    });
+
+
+  } catch (error) {
+    console.error(
+      chalk.bgRed(
+        "Error in addNewServiceController in admin.controller.js ====>> ",
+        error.message
+      )
+    );
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+}
+
+
+
+export const getAllServicesController = async(req,res) =>{
+  try {
+    const allservices = await serviceModel.find();
+    res.status(200).json({
+      success: true,
+      data: allservices,
+      message: "All Services Fetched Successfully",
+    });
+  } catch (error) {
+    console.error(
+      chalk.bgRed(
+        "Error in  getAllServicesController in doctor.controller.js ====>> ",
+        error.message
+      )
+    );
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+}
