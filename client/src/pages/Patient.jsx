@@ -68,13 +68,13 @@ function Patient() {
   return (
     <div className="overflow-x-hidden ">
     <MobileOption/>
-      <div className="w-full pt-10 flex  ">
+      <div className="w-full pt-10 flex mb-14 ">
         <PatientNavbar />
         <Sidebar />
       </div>
 
       <div
-        className={`w-full  mt-24 ${
+        className={`w-full  mt-24 pb-34 ${
           isOpen ? "md:pl-30 md:ml-[20%]" : "md:pl-12 md:ml-[9%]"
         } `}
       >

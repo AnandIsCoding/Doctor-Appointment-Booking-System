@@ -4,11 +4,43 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { useSelector } from 'react-redux'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
+import { addUser } from '../redux/slices/userSlice';
+import toast from 'react-hot-toast'
+import axios from 'axios'
+
 function PatientNavbar() {
    const navigate = useNavigate()
    const location = useLocation()
     const [openPanel, setOpenpanel] = useState(false)
-    const isOpen = useSelector(state => state.sidebar)
+    const user = useSelector(state => state.user)
+
+    
+          const [isLoading, setIsloading] = useState(false);
+
+    const handleLogout = async() =>{
+      // Show loading toast
+      const loadingToast = toast.loading("Please Wait .... ");
+      setIsloading(true);
+     
+      try {
+         const res = await axios.delete('https://dochealth.onrender.com/api/v1/user/logout',{withCredentials:true})
+         if(res.data.success){
+          toast.success("Logged out successfully!")
+          navigate('/')
+          dispatch(addUser(null))
+         }else{
+          toast.error(res.data.error)
+         }
+      } catch (error) {
+        toast.error(
+          error?.response?.data?.message || "An unexpected error occurred!"
+        );
+        console.log(error)
+      }finally {
+        setIsloading(false);
+        toast.dismiss(loadingToast);
+      }
+    }
   return (
     
       <>
@@ -37,7 +69,7 @@ function PatientNavbar() {
 
 
        <div
-              className={` sm:w-[45%] w-[65%]  z-[999]  py-7 mt-2 text-white bg-black ${
+              className={` sm:w-[45%] w-[65%]  z-[999]  py-7 mt-2 text-white bg-[#81f6db] ${
                 !openPanel ? "hidden" : "fixed right-4 top-30  px-6 flex flex-col gap-4 rounded-lg"
               } `}
             >
@@ -47,6 +79,10 @@ function PatientNavbar() {
         
         <NavLink to='/patient/my-appointments' onClick={()=> setOpenpanel(prev => !prev)}  className="text-xl font-semibold text-[#004D43] bg-white cursor-pointer  py-3 px-3 rounded-lg   ">
           My Appointments
+        </NavLink>  
+
+        <NavLink  onClick={handleLogout}  className="text-xl font-semibold text-[#004D43] bg-white cursor-pointer  py-3 px-3 rounded-lg   ">
+          Logout
         </NavLink>      
               
               
