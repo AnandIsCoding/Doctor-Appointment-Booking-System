@@ -60,7 +60,7 @@ function Signup() {
 
       // Make the API call to register or signup the user
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/signup",
+        "https://dochealth.onrender.com/api/v1/user/signup",
         formDataToSend,
         {
           withCredentials: true,
@@ -103,7 +103,7 @@ function Signup() {
     // call backend api to login
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/v1/user/login`,
+        `https://dochealth.onrender.com/api/v1/user/login`,
         { email: formData.email, password: formData.password },
         { withCredentials: true }
       );

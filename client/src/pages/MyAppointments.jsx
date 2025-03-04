@@ -14,7 +14,7 @@ function MyAppointments() {
 
   const fetchAllAppointments = async () => {
     try {
-      const {data} = await axios.get(`http://localhost:3000/api/v1/appointment/my-appointments`,{withCredentials:true});
+      const {data} = await axios.get(`https://dochealth.onrender.com/api/v1/appointment/my-appointments`,{withCredentials:true});
       // console.log(data)
       setAllappointments(data.allappointments);
     } catch (error) {
@@ -34,7 +34,7 @@ function MyAppointments() {
       if(message.length < 10) return toast.error('Please Enter feedback message of atleat length of 10-20💚')
       //console.log('Message is -----> ',message)
        // send feedback message to server
-       const {data} = await axios.post(`http://localhost:3000/api/v1/feedback/new`,{feedbackMessage:message},{withCredentials:true});
+       const {data} = await axios.post(`https://dochealth.onrender.com/api/v1/feedback/new`,{feedbackMessage:message},{withCredentials:true});
        setShowFeedbackform(false);
        setMessage('');
        toast.success('Feedback submitted successfully! ')

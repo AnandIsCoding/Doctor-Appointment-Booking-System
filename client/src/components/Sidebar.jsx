@@ -28,7 +28,7 @@ function Sidebar() {
     setIsloading(true);
    
     try {
-       const res = await axios.delete('http://localhost:3000/api/v1/user/logout',{withCredentials:true})
+       const res = await axios.delete('https://dochealth.onrender.com/api/v1/user/logout',{withCredentials:true})
        if(res.data.success){
         toast.success("Logged out successfully!")
         navigate('/')

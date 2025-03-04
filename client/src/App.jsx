@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/v1/user/profile/view`, {
+        const res = await axios.get(`https://dochealth.onrender.com/api/v1/user/profile/view`, {
           withCredentials: true,
         });
         if (res.data.success) {
@@ -69,7 +69,7 @@ function App() {
   const fetchAllDoctors = async() =>{
     // Fetch all doctors from API
     try {
-      const res = await axios.get('http://localhost:3000/api/v1/doctor/alldoctors')
+      const res = await axios.get('https://dochealth.onrender.com/api/v1/doctor/alldoctors')
       if(res.data.success){
         dispatch(setDoctors(res.data.data))
       }else{

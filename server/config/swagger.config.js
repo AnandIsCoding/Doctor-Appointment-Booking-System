@@ -19,7 +19,7 @@ const options = {
             description: "📑 API documentation for Doctor Appointment Booking System, demo doctor id: 67ba0d30c409dabf75bcbaf2",
         },
         servers: [
-            { url: "http://localhost:3000" } // Change this to your deployed API URL
+            { url: "https://dochealth.onrender.com" } // Change this to your deployed API URL
         ],
     },
     apis: [path.join(__dirname, "../routes/*.routes.js")], // Adjust path to route files
@@ -30,7 +30,7 @@ const swaggerSpec = swaggerJSDoc(options);
 
 export const swaggerDocs = (app) => {
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-    console.log(chalk.bgCyanBright("Swagger documentation available at http://localhost:3000/api-docs"));
+    console.log(chalk.bgCyanBright("Swagger documentation available at https://dochealth.onrender.com/api-docs"));
 };
 
 // Export the function to integrate with the main server file

@@ -41,7 +41,7 @@ function SingleDoctor() {
 
   const fetchDoctorById = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/v1/doctor/${_id}`);
+      const res = await axios.get(`https://dochealth.onrender.com/api/v1/doctor/${_id}`);
       setDoctor(res.data.doctor);
     } catch (error) {
       setError("Failed to fetch doctor details.");
@@ -67,7 +67,7 @@ function SingleDoctor() {
       
       const dateObj = new Date();
       const response = await axios.post(
-        `http://localhost:3000/api/v1/appointment/book-appointment`,
+        `https://dochealth.onrender.com/api/v1/appointment/book-appointment`,
         {
           doctorId: _id,
           timeSlot: formData.timeSlot,
@@ -90,7 +90,7 @@ function SingleDoctor() {
 
       const dateObj = new Date();
       const response = await axios.post(
-        `http://localhost:3000/api/v1/appointment/book-appointment`,
+        `https://dochealth.onrender.com/api/v1/appointment/book-appointment`,
         {
           doctorId: _id,
           timeSlot: formData.timeSlot,

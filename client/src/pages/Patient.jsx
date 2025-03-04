@@ -45,7 +45,7 @@ function Patient() {
     
     // save to database api call
     try {
-      const res = await axios.patch('http://localhost:3000/api/v1/user/profile/update', userDetails , {withCredentials:true})
+      const res = await axios.patch('https://dochealth.onrender.com/api/v1/user/profile/update', userDetails , {withCredentials:true})
       if(res.data.success){
         dispatch(addUser(res?.data?.user));
         toast.success(res?.data?.message);

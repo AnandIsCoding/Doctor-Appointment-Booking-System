@@ -11,7 +11,7 @@ function Services() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/user/allservices");
+        const response = await axios.get("https://dochealth.onrender.com/api/v1/user/allservices");
         setServices(response.data.data);
         setLoading(false);
       } catch (error) {
