@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { addUser } from "../redux/slices/userSlice";
+import MobileOption from "../components/MobileOption";
 
 function Patient() {
   const dispatch = useDispatch()
@@ -66,6 +67,7 @@ function Patient() {
 
   return (
     <div className="overflow-x-hidden ">
+    <MobileOption/>
       <div className="w-full pt-10 flex  ">
         <PatientNavbar />
         <Sidebar />
@@ -73,7 +75,7 @@ function Patient() {
 
       <div
         className={`w-full  mt-24 ${
-          isOpen ? "pl-30 md:ml-[20%]" : "pl-12 ml-[9%]"
+          isOpen ? "md:pl-30 md:ml-[20%]" : "md:pl-12 md:ml-[9%]"
         } `}
       >
         <div className="w-full md:w-1/2 p-4 rounded-2xl flex flex-col gap-4 bg-white shadow-md">
@@ -207,19 +209,27 @@ function Patient() {
           ) : (
             <p className="text-lg">
               Address :{" "}
-              <span className="text-green-700">{user.address}</span>
+              <span className="text-green-700">{user?.address}</span>
             </p>
           )}
 
           {editMode ? (
-            <button
+           <>
+           <button
               onClick={handleSaveBtn}
               className="w-full text-center rounded-lg py-2 bg-[#27DFB3] text-black text-xl font-bold cursor-pointer hover:bg-[#88e1eb] transition duration-300"
             >
               Save
             </button>
-          ) : (
             <button
+              onClick={()=>setEditmode(prev => !prev)}
+              className="w-full text-center rounded-lg py-2  text-xl font-bold cursor-pointer bg-[#27DFB3] text-black hover:bg-[#88e1eb] transition duration-300"
+            >
+              Cancel
+            </button>
+           </>
+          ) : (
+          <button
               onClick={handleEditBtn}
               className="w-full text-center rounded-lg py-2  text-xl font-bold cursor-pointer bg-[#27DFB3] text-black hover:bg-[#88e1eb] transition duration-300"
             >

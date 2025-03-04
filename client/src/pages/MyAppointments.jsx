@@ -6,6 +6,7 @@ import MyAppointmentCard from "../components/myAppointmentCard";
 import { FaWindowClose } from "react-icons/fa";
 import toast from "react-hot-toast";
 import axios, { all } from "axios";
+import MobileOption from "../components/MobileOption";
 
 function MyAppointments() {
   const isOpen = useSelector((state) => state.sidebar);
@@ -50,13 +51,14 @@ function MyAppointments() {
   const [showFeedbackform, setShowFeedbackform] = useState(false);
   return (
     <div className="">
+    <MobileOption/>
       <div className="w-full pt-10 flex">
         <PatientNavbar />
         <Sidebar />
       </div>
 
       <div
-        className={`w-full mt-24 pl-4 ${
+        className={`w-full mt-24 px-1 ${
           isOpen ? "md:pl-[18%]" : "md:pl-[5%]"
         } flex flex-wrap justify-center items-stretch gap-4`}
       >

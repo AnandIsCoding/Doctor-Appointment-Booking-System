@@ -132,7 +132,7 @@ function Signup() {
       <Navbar />
 
       <div className="mt-28 w-full flex justify-center items-center mb-8">
-        <div className="bg-black rounded-lg py-3 px-3 w-[95%] md:w-[80%] md:h-[42vw] md:flex">
+        <div className="bg-black rounded-lg py-3 px-3 w-[95%] md:w-[80%] md:h-fit lg:h-[42vw] md:flex">
           {/* Image Section */}
           <div className="w-full md:w-[50%] h-full bg-blue-700 overflow-hidden rounded-lg">
             <img
