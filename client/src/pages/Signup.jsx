@@ -55,8 +55,8 @@ function Signup() {
       formDataToSend.append("email", formData.email);
       formDataToSend.append("password", formData.password);
       formDataToSend.append("gender", formData.gender);
-      formDataToSend.append("age", String(formData.age));
-      formDataToSend.append("image", formData.image); // Ensure this is a File object
+      formDataToSend.append("age", formData.age);
+      formDataToSend.append("image", formData.image); 
 
       // Make the API call to register or signup the user
       const response = await axios.post(
