@@ -78,7 +78,7 @@ function MyAppointments() {
         {showFeedbackform && (
           <div className="fixed z-[999] w-[90vw] md:w-[40vw] flex flex-col gap-4 px-6 py-3 pb-5 bg-[#2DF8C5] rounded-2xl  text-black  items-center justify-between shadow-lg">
             <div className="w-full flex justify-between">
-              <h1 className="text-lg font-semibold">Type your message here</h1>
+              <h1 className="text-lg  font-normal">Type your message here</h1>
               <button
                 onClick={() => setShowFeedbackform(false)}
                 className="text-2xl font-semibold text-black cursor-pointer transition-all duration-300 hover:scale-105"
@@ -92,7 +92,7 @@ function MyAppointments() {
               type="text"
               onChange={(event)=>setMessage(event.target.value)}
               placeholder="Write your feedback..."
-              className="mt-4 px-4 h-[25vw] md:h-[15vw] bg-white py-2 w-full border-2 border-black rounded-lg focus:outline-none focus:border-gray-700"
+              className="mt-4 px-4 h-[25vw] md:h-[15vw] bg-white py-2 w-full  rounded-lg focus:outline-none focus:border-gray-700"
             />
 
             {/* Submit Button with Hover Animation */}

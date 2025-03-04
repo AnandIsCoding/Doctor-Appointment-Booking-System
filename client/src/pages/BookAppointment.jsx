@@ -48,7 +48,7 @@ function BookAppointment() {
             <button
               key={specialization}
               onClick={() => setSelectedSpecialization(specialization)}
-              className={`px-4 border-1 border-[grey] text-black active:scale-105 transition-all duration-300 py-2 rounded-lg text-xl flex-shrink-0 cursor-pointer  hover:text-black font-xs ${selectedSpecialization === specialization ? "bg-[#FFDB52] text-black" : "hover:bg-blue-300"} `}
+              className={`px-4 border-1 border-[grey]  text-black active:scale-105 transition-all duration-300 py-2 rounded-lg text-xl flex-shrink-0 cursor-pointer  hover:text-black font-xs ${selectedSpecialization === specialization ? "bg-[#FFDB52] text-black" : "hover:bg-blue-300"} `}
             >
               {specialization}
             </button>

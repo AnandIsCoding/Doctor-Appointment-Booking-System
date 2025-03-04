@@ -12,14 +12,15 @@ function PatientNavbar() {
   return (
     
       <>
-        <div className={` w-fit pr-6 z-[50] md:bg-black    px-4  flex flex-wrap justify-center items-stretch gap-4 py-3 rounded-md mr-4 absolute right-0 md:fixed`}>
-      <div className=" h-full  justify-between   hidden md:flex gap-14">
-        <NavLink to="/patient/book-appointment" duration={3000}  className="text-lg flex gap-2 text-white font-semibold  cursor-pointer ">
-          Book Appointment {location.pathname == '/patient/book-appointment' && <h1>💡</h1>}
+        <div className={` w-fit  z-[50] border-0  md:border-1 border-black bg-none md:bg-white  flex flex-wrap justify-center items-stretch gap-4  rounded-md mr-4 absolute right-0 md:fixed`}>
+      <div className=" h-full  justify-between   hidden md:flex gap-14 px-2 py-2">
+
+        <NavLink to="/patient/book-appointment" duration={3000}  className={`text-lg flex gap-2 text-black font-normal cursor-pointer ${location.pathname == '/patient/book-appointment' ? 'md:bg-[#FFDB52] border-black border-1 py-1 ' : 'md:bg-none'} px-3 py-1 rounded-md transition duration-300`}>
+          Book Appointment 
         </NavLink>
         
-        <NavLink to='/patient/my-appointments'  className="text-lg font-semibold flex gap-2 text-white cursor-pointer   ">
-          My Appointments {location.pathname == '/patient/my-appointments' && <h1>💊</h1>}
+        <NavLink to='/patient/my-appointments'  className={`text-lg flex gap-2 text-black font-normal cursor-pointer ${location.pathname == '/patient/my-appointments' ? 'md:bg-[#FFDB52] border-black border-1 py-1 ' : 'md:bg-none'} px-3 py-1 rounded-md transition duration-300 `}>
+          My Appointments
         </NavLink>      
 
         
