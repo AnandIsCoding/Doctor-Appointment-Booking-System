@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 import { addUser } from '../redux/slices/userSlice';
@@ -10,6 +10,7 @@ import axios from 'axios'
 
 function PatientNavbar() {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
    const location = useLocation()
     const [openPanel, setOpenpanel] = useState(false)
     const user = useSelector(state => state.user)
@@ -29,11 +30,11 @@ function PatientNavbar() {
           navigate('/')
           dispatch(addUser(null))
          }else{
-          toast.error(res.data.error)
+            toast.error(res.data.error || "Logout failed!");
          }
       } catch (error) {
         toast.error(
-          error?.response?.data?.message || "An unexpected error occurred!"
+          error?.message || "An unexpected error occurred!"
         );
         console.log(error)
       }finally {
