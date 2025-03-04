@@ -169,6 +169,10 @@ export const loginAdminController = async (req, res) => {
         error.message
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -236,6 +240,10 @@ export const addNewServiceController = async(req,res) =>{
         error.message
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -259,6 +267,10 @@ export const getAllServicesController = async(req,res) =>{
         error.message
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });

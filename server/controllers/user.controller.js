@@ -156,6 +156,10 @@ export const UserLoginController = async (req, res) => {
         error
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -193,6 +197,10 @@ export const getUserProfileController = async (req, res) => {
         error
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -270,11 +278,16 @@ export const updateUserProfileController = async (req, res) => {
       });
   } catch (error) {
     console.log(
+      
       chalk.bgRed(
         "Error in updateUserProfileController in user.controller.js ===> ",
         error
       )
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });

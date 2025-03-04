@@ -14,6 +14,10 @@ export const feedbackController = async(req,res) =>{
         res.status(201).json({ success: true, message: "Feedback submitted successfully!" });
       } catch (error) {
         console.log(chalk.bgReg('Error in feedbackController in feedback.controller.js ----->> ',error))
+        if (error.code === 'ECONNRESET') {
+          return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+        }
+    
         res.status(500).json({ success: false, message: error.message });
       }
 }

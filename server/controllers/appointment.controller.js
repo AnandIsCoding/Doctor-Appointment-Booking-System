@@ -76,6 +76,10 @@ export const bookAppointmentController = async (req, res) => {
     console.log(
       chalk.bgRed("Error in bookAppointmentController in appointment.controller.js ===> ", error)
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
@@ -91,6 +95,10 @@ export const allAppointmentsController = async(req,res) =>{
     console.log(
       chalk.bgRed("Error in allAppointmentsController in appointment.controller.js ===> ", error)
     );
+    if (error.code === 'ECONNRESET') {
+      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+    }
+
     return res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 }
