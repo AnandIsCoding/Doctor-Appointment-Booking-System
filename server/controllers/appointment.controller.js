@@ -43,6 +43,7 @@ export const bookAppointmentController = async (req, res) => {
       doctorData: {
         id: doctorId,
         name: doctor.name,
+        email:doctor.email,
         specialization: doctor.specialization,
         image:doctor.image,
         experience:doctor.experience,
