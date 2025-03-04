@@ -88,7 +88,7 @@ function Sidebar() {
       <div className="mt-auto mb-28 md:mb-14">
         {
           isOpen ? 
-            <button onClick={handleLogout} className="w-full bg-white px-2 py-2 rounded-lg cursor-pointer">Logout</button> 
+            <button onClick={handleLogout} data-testid='logoutbtn' className="w-full bg-white px-2 py-2 rounded-lg cursor-pointer">Logout</button> 
           : 
             <AiOutlineLogout
             onClick={handleLogout}
