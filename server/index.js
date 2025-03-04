@@ -45,7 +45,7 @@ swaggerDocs(app);
 
 
 // CORS configuration
-const allowedOrigins = ["http://localhost:5173", "http://localhost:3000"];
+const allowedOrigins = ["https://dochealth.onrender.com", "http://localhost:5173", "http://localhost:3000"];
 const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.includes(origin) || !origin) {
