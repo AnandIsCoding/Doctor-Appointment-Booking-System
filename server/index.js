@@ -4,8 +4,10 @@ import cors from 'cors'
 import dotenv from 'dotenv' // Dotenv to load environment variables
 import chalk from 'chalk'   // Chalk for colored console logs
 import cookieParser from 'cookie-parser';
+import path from 'path'
+import { fileURLToPath } from 'url';
 
-// Import database connection configuration file
+// Import database connection configuration file and routers
 import connectToDb from './config/database.config.js'
 import connectToCloudinary from './config/cloudinary.config.js'
 import adminRouter from './routes/admin.routes.js'
@@ -64,6 +66,18 @@ app.use('/api/v1/appointment', appointmentRouter)
 app.use('/api/v1/feedback',feedbackRouter)
 
 
+
+// Get the directory name in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React frontend
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
+
+// This sends all other requests to the React app's index.html (single-page application routing)
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'client', 'dist', 'index.html'));
+});
 
 // database connection
 connectToDb().then(()=>{

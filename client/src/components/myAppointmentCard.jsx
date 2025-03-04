@@ -6,7 +6,7 @@ const MyAppointmentCard = ({ doctor, setShowFeedbackform}) => {
 
 
   return (
-    <div className="md:w-[70%] flex items-center justify-between bg-white shadow-lg rounded-lg p-4 border border-gray-300 hover:bg-green-50">
+    <div className="md:w-[70%] flex items-center justify-between bg-white shadow-lg rounded-lg p-4 border border-gray-300 hover:shadow-xl">
       
       {/* Left Side - Doctor's Image & Details */}
       <div className="flex items-center gap-4">
