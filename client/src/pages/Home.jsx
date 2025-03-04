@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import AnnouncementSection from '../components/AnnouncementSection'
 import HospitalServicesStrip from '../components/HospitalServicesStrip'
-import FAQs from '../components/Faqs'
+import FAQs from '../components/FAQs'
 import MultiStepDescription from '../components/MultiStepDescription'
 
 function Home() {
