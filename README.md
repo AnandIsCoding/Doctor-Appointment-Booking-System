@@ -213,8 +213,8 @@ This setup enhances performance and ensures seamless data flow across the applic
 
 ### Appointment Booking  
 <p align="center">
-    <img src="client/public/doctorPage1.png"  alt="Screenshot 2" width="45%">
-    <img src="client/public/doctorPage3.png"  alt="Screenshot 2" width="45%">
+    <img src="client/public/DoctorPage1.png"  alt="Screenshot 2" width="45%">
+    <img src="client/public/DoctorPage3.png"  alt="Screenshot 2" width="45%">
 </p>
 
 ---
