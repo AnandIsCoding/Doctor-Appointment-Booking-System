@@ -26,7 +26,7 @@ export const registerUserController = async (req, res) => {
     if (!passwordRegex.test(password)) {
       return res.status(400).json({
         success: false,
-        error: "Invalid password format",
+        error: "Password must be at least 5 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%*?&).",
         message:
           "Password must be at least 5 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%*?&).",
       });
@@ -97,7 +97,7 @@ export const registerUserController = async (req, res) => {
       console.error(chalk.bgRed("Validation Error =>>>"), messages);
       return res.status(400).json({
         success: false,
-        message: "Validation Error",
+        message: messages[0],
         error: messages[0],
       });
     }
