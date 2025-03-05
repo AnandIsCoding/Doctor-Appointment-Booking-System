@@ -193,28 +193,28 @@ This setup enhances performance and ensures seamless data flow across the applic
 
 ### Home Page  
 <p align="center">
-  <img src="../Doctor-Booking-System//client/public//Home1.png" alt="Screenshot 1" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Home2.png"  alt="Screenshot 2" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Home3.png"  alt="Screenshot 2" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Home4.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Home1.png" alt="Screenshot 1" width="45%">
+  <img src="client/public/Home2.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Home3.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Home4.png"  alt="Screenshot 2" width="45%">
 </p>
 
 
 ### Dashboard  
 <p align="center">
-  <img src="../Doctor-Booking-System//client/public//Dashboard1.png" alt="Screenshot 1" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Dashboard2.png"  alt="Screenshot 2" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Dashboard3.png"  alt="Screenshot 2" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Dashboard4.png"  alt="Screenshot 2" width="45%">
-  <img src="../Doctor-Booking-System//client/public//Dashboard5.png"  alt="Screenshot 2" width="100%">
-  <img src="../Doctor-Booking-System//client/public//Dashboard6.png"  alt="Screenshot 2" width="100%">
+  <img src="client/public/Dashboard1.png" alt="Screenshot 1" width="45%">
+  <img src="client/public/Dashboard2.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Dashboard3.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Dashboard4.png"  alt="Screenshot 2" width="45%">
+  <img src="client/public/Dashboard5.png"  alt="Screenshot 2" width="100%">
+  <img src="client/public/Dashboard6.png"  alt="Screenshot 2" width="100%">
 </p>
 
 
 ### Appointment Booking  
 <p align="center">
-    <img src="../Doctor-Booking-System//client/public//doctorPage1.png"  alt="Screenshot 2" width="45%">
-    <img src="../Doctor-Booking-System//client/public//doctorPage3.png"  alt="Screenshot 2" width="45%">
+    <img src="client/public/doctorPage1.png"  alt="Screenshot 2" width="45%">
+    <img src="client/public/doctorPage3.png"  alt="Screenshot 2" width="45%">
 </p>
 
 ---
