@@ -38,11 +38,19 @@ function App() {
         if (res.data.success) {
           dispatch(addUser(res?.data?.user));
         }else{
-          toast.error(res?.data?.message)
+          // toast.error(res?.data?.message)
+          toast((t) => (
+            <span>
+              {res?.data?.message}
+              <button className="px-3 py-1 rounded-md bg-zinc-200 ml-1" onClick={() => toast.dismiss(t.id)}>
+                Dismiss
+              </button>
+            </span>
+          ));
         }
       } catch (error) {
         //toast.error(error?.response?.data?.message);
-        //console.log(error);
+        console.log(error);
       }
     };
 
@@ -73,12 +81,33 @@ function App() {
       if(res.data.success){
         dispatch(setDoctors(res.data.data))
       }else{
-        toast.error(res.data.message)
         console.log('Error in fetching all doctors api in APP.jsx ==> ',res.data.message)
+        return toast((t) => (
+          <span className="w-fit max-w-screen px-2 inline-flex items-center gap-2">
+            {res.data.message}.🚫
+            <button 
+              className="px-3 py-1 rounded-md bg-zinc-200 cursor-pointer" 
+              onClick={() => toast.dismiss(t.id)}
+            >
+              Dismiss
+            </button>
+          </span>
+        ));
+        
       }
     } catch (error) {
-      toast.error(error.message)
       console.log('Error in fetching all doctors api in APP.jsx ==> ',error)
+      return toast((t) => (
+        <span className="w-fit max-w-screen px-2 inline-flex items-center gap-2">
+          {error.message}.🚫
+          <button 
+            className="px-3 py-1 rounded-md bg-zinc-200 cursor-pointer" 
+            onClick={() => toast.dismiss(t.id)}
+          >
+            Dismiss
+          </button>
+        </span>
+      ));
     }
   }
 

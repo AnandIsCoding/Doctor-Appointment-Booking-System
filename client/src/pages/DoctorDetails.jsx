@@ -48,7 +48,20 @@ function SingleDoctor() {
 
   const handleBookAppointment = async () => {
     if (!formData.timeSlot || !formData.dateSlot) {
-      return toast.error("Please select a valid day and time slot.");
+     //toast.error();
+     return toast((t) => (
+      <span className="w-fit max-w-screen px-2 inline-flex items-center gap-2">
+        Please select a valid Date and Time slot🚫.
+        <button 
+          className="px-3 py-1 rounded-md bg-zinc-200 cursor-pointer" 
+          onClick={() => toast.dismiss(t.id)}
+        >
+          Dismiss
+        </button>
+      </span>
+    ));
+    
+    
     }
 
     try {
@@ -63,10 +76,28 @@ function SingleDoctor() {
       );
 
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success(response.data.message, {
+          style: {
+            border: '1px solid #27DFB3',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#27DFB3',
+            secondary: '#27DFB3',
+          },
+        });
         navigate("/patient/my-appointments");
       } else {
-        toast.error(response.data.data.message);
+        //toast.error(response.data.data.message);
+        toast((t) => (
+          <span >
+            {response.data.data.message}
+            <button className="px-3 py-1 rounded-md bg-zinc-200 ml-1" onClick={() => toast.dismiss(t.id)}>
+              Dismiss
+            </button>
+          </span>
+        ));
       }
     } catch (error) {
       console.error(error);

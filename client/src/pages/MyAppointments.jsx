@@ -20,7 +20,14 @@ function MyAppointments() {
       setAllappointments(data.allappointments);
     } catch (error) {
       console.log(error)
-      toast.error("Failed to fetch appointments.");
+      toast((t) => (
+        <span>
+          💔Failed to fetch <b>Bookings</b>
+          <button className="px-3 py-1 rounded-md bg-zinc-200 ml-1 cursor-pointer" onClick={() => toast.dismiss(t.id)}>
+            Dismiss
+          </button>
+        </span>
+      ));
     } 
   };
 
@@ -38,11 +45,28 @@ function MyAppointments() {
        const {data} = await axios.post(`https://dochealth.onrender.com/api/v1/feedback/new`,{feedbackMessage:message},{withCredentials:true});
        setShowFeedbackform(false);
        setMessage('');
-       toast.success('Feedback submitted successfully! ')
+       toast.success('Your Feedback has been Submitted', {
+        style: {
+          border: '1px solid #27DFB3',
+          padding: '16px',
+          color: '#713200',
+        },
+        iconTheme: {
+          primary: '#27DFB3',
+          secondary: '#27DFB3',
+        },
+      });
        fetchAllAppointments();
     } catch (error) {
       console.log('Error in feedback submission in myAppointmentcard: ', error.message)
-      toast.error('Error in feedback submission in myAppointmentcard, Wait...... ', error.message)
+      toast((t) => (
+        <span>
+          💔{error.message}
+          <button className="px-3 py-1 rounded-md bg-zinc-200 ml-1" onClick={() => toast.dismiss(t.id)}>
+            Dismiss
+          </button>
+        </span>
+      ));
     }
   }
 

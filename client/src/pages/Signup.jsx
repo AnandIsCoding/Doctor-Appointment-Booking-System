@@ -71,7 +71,17 @@ function Signup() {
       );
 
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success(response.data.message, {
+          style: {
+            border: '1px solid #27DFB3',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#27DFB3',
+            secondary: '#27DFB3',
+          },
+        });
         dispatch(addUser(response.data.user));
         navigate("/patient");
       } else {
@@ -109,7 +119,17 @@ function Signup() {
       );
 
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success(response.data.message, {
+          style: {
+            border: '1px solid #27DFB3',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#27DFB3',
+            secondary: '#27DFB3',
+          },
+        });
         dispatch(addUser(response.data.user));
         navigate("/patient");
       } else {
