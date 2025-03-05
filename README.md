@@ -1,7 +1,9 @@
 # 🏥 Doctor Appointment Booking System
 
 An efficient and user-friendly platform designed to streamline the process of booking doctor appointments, ensuring seamless communication between patients and healthcare providers. Built using React.js for the frontend and Node.js, Express.js, and MongoDB for the backend.
-📝 Overview
+
+--- 
+📝 **Overview** :
 The Doctor Appointment Booking System enables users to filter doctor on the basis of specialization, book appointments, manage schedules, and receive notifications. The backend provides secure APIs for handling appointments, user authentication, and doctor management.
 
 
