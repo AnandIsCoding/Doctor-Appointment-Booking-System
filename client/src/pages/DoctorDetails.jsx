@@ -51,7 +51,7 @@ function SingleDoctor() {
      //toast.error();
      return toast((t) => (
       <span className="w-fit max-w-screen px-2 inline-flex items-center gap-2">
-        Please select a valid Date and Time slot🚫.
+        Please select a valid Date and Time slot.🚫
         <button 
           className="px-3 py-1 rounded-md bg-zinc-200 cursor-pointer" 
           onClick={() => toast.dismiss(t.id)}
