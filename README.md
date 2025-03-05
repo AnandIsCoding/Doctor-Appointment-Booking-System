@@ -164,15 +164,15 @@ This **doctor appointment appointment system** allows patients to book appointme
 |--------|----------|-------------|
 | POST | `/api/v1/feedback/new` | Submit feedback |
 
-### **Admin Endpoints**
+### **Admin Endpoints**  
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/v1/admin/users` | Get all users |
-| GET | `/api/v1/admin/doctors` | Get all doctors |
-| POST | `/api/v1/admin/doctor/new` | Add a new doctor |
-| GET | `/api/v1/admin/appointments` | Get all appointments |
-| DELETE | `/api/v1/admin/appointment/{id}` | Delete an appointment |
+| Method | Endpoint | Description |  
+|--------|------------------------------|--------------------------|  
+| POST   | `/api/v1/admin/login`         | Admin login              |  
+| POST   | `/api/v1/admin/register-doctor` | Register a new doctor  |  
+| POST   | `/api/v1/admin/register-new-service` | Register a new service |  
+| GET    | `/api/v1/admin/allservices`   | Get all services        |  
+
 
 ---
 
