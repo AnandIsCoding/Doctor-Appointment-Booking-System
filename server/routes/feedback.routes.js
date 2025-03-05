@@ -1,7 +1,15 @@
-import express from 'express'
-import { authUser } from '../middlewares/authenticateUser.middleware.js'
-import { feedbackController } from '../controllers/feedback.controller.js'
-const feedbackRouter = express.Router()
+// Import the Express framework to create a router
+import express from 'express';
+
+// Import middleware to authenticate users before they can submit feedback
+import { authUser } from '../middlewares/authenticateUser.middleware.js';
+
+// Import controller function to handle feedback-related operations
+import { feedbackController } from '../controllers/feedback.controller.js';
+
+// Create an instance of the Express router
+const feedbackRouter = express.Router();
+
 
 
 /**

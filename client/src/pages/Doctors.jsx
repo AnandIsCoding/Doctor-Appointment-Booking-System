@@ -16,6 +16,7 @@ function Doctors() {
 
   return (
     <div className="w-full">
+    {/* Display Navbar */}
       <Navbar />
 
       {/* Categories Selection */}
@@ -52,9 +53,11 @@ function Doctors() {
         )}
       </div>
 
+{/* display Footer */}
       <Footer />
     </div>
   );
 }
 
+// export Doctors component
 export default Doctors;

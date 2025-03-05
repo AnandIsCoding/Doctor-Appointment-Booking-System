@@ -16,6 +16,7 @@ function Patient() {
     const [isLoading, setIsloading] = useState(false);
   
   const user = useSelector(state => state.user)
+  // // Form data state for all details to be updated
   const [userDetails, setUserdetails] = useState({
     name: "",
     age: "",
@@ -26,6 +27,7 @@ function Patient() {
     bloodGroup: "",
   });
 
+   // Single onChange handler to handle input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserdetails((prev) => ({
@@ -34,11 +36,13 @@ function Patient() {
     }));
   };
 
+  // edit btn handler
   const handleEditBtn = async() => {
     setEditmode((prev) => !prev);
     
   };
 
+  // save btn handler
   const handleSaveBtn = async() => {
      // Show loading toast
      const loadingToast = toast.loading("Please Wait .... ");
@@ -67,7 +71,10 @@ function Patient() {
 
   return (
     <div className="overflow-x-hidden ">
+
+    {/* display mobile navigation option that will be displayed */}
     <MobileOption/>
+    {/* display navbar that will be displayed to logged in user/patient and sidebar */}
       <div className="w-full pt-10 flex mb-14 ">
         <PatientNavbar />
         <Sidebar />
@@ -213,6 +220,8 @@ function Patient() {
             </p>
           )}
 
+
+            {/* if user is in edit mode display save and cancel button otherwise display Edit button , when user clist on Edit btn form will be displayed and save and cancel btn */}
           {editMode ? (
            <>
            <button

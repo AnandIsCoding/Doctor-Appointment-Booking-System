@@ -1,6 +1,9 @@
 # 🏥 Doctor Appointment Booking System
 
-An advanced full-stack doctor appointment booking system built using the **MERN stack**. This project was initially part of an AlmaBetter assignment and now includes a complete backend and frontend for booking, managing appointments, and user authentication.
+An efficient and user-friendly platform designed to streamline the process of booking doctor appointments, ensuring seamless communication between patients and healthcare providers. Built using React.js for the frontend and Node.js, Express.js, and MongoDB for the backend.
+📝 Overview
+The Doctor Appointment Booking System enables users to filter doctor on the basis of specialization, book appointments, manage schedules, and receive notifications. The backend provides secure APIs for handling appointments, user authentication, and doctor management.
+
 
 ---
 
@@ -37,7 +40,7 @@ You can view the Google Docs file, which includes a summary, useful links, etc.:
 
 ## 📝 Overview
 
-This **doctor appointment booking system** allows patients to book appointments with doctors, manage their profiles, submit feedback, and view their bookings. The **admin panel** APIs are ready but will be integrated in future updates.
+This **doctor appointment appointment system** allows patients to book appointments with doctors, manage their profiles, submit feedback, and view their bookings. The **admin panel** APIs are ready but will be integrated in future updates.
 
 ---
 
@@ -74,7 +77,7 @@ This **doctor appointment booking system** allows patients to book appointments 
 - **JWT Authentication** - Secure user sessions.
 - **Cloudinary** - Image upload.
 - **Swagger** - API Documentation.
-- **Chalk** - Prettu console logs.
+- **Chalk** - Pretty console logs.
 
 ---
 

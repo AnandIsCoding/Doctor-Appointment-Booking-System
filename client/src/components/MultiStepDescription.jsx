@@ -1,5 +1,5 @@
 import { multiStepData } from "../utils/multistepData";
-import React, { useState } from "react";
+import React, { useState } from "react"; // Imported React and necessary hooks
 
 function MultiStepDescription() {
   // State initialized with 1 to show the first content by default

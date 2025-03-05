@@ -1,13 +1,15 @@
-import React from "react";
-import { FaStar } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import React from "react"; // Imported React library
+import { FaStar } from "react-icons/fa"; // Imported star icon from react-icons
+import { useSelector } from "react-redux"; // Imported useSelector to access Redux state
+import { useNavigate } from "react-router-dom"; // Imported useNavigate for navigation
+import toast from "react-hot-toast"; // Imported toast for displaying notifications
+
 
 const DoctorCard = ({ doctor }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
+  // Function to handle book doctor button click
   const handleBookDoctorBtnClick = () => {
     if (!user) {
       navigate("/signup-login");

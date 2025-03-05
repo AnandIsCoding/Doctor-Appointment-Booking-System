@@ -1,8 +1,20 @@
+// Import the Express framework to create a router
 import express from 'express';
+
+// Import the Multer configuration for handling file uploads
 import upload from '../config/multer.config.js';
 
-import {addNewServiceController, getAllServicesController, loginAdminController, registerDoctorController} from '../controllers/admin.controller.js'
+// Import controller functions to handle admin-related operations
+import { 
+  addNewServiceController,   // Handles adding a new service
+  getAllServicesController,  // Handles retrieving all services
+  loginAdminController,      // Handles admin login
+  registerDoctorController   // Handles doctor registration
+} from '../controllers/admin.controller.js';
+
+// Import middleware to authenticate admin users before accessing protected routes
 import { authenticateAdmin } from '../middlewares/authenticateAdmin.middleware.js';
+
 
 
 const adminRouter = express.Router()
@@ -122,8 +134,64 @@ adminRouter.post('/login',loginAdminController)
  */
 adminRouter.post('/register-doctor', authenticateAdmin, upload.single('image'), registerDoctorController)
 
+
+// POST request to register a new service
+/**
+ * @swagger
+ * /api/v1/admin/register-new-service:
+ *   post:
+ *     summary: Register a new service
+ *     description: Allows an authenticated admin to add a new service with an image upload.
+ *     tags:
+ *       - Admin
+ *     security:
+ *       - BearerAuth: []
+ *     consumes:
+ *       - multipart/form-data
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - image
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *                 description: The image file for the service.
+ *     responses:
+ *       201:
+ *         description: Service registered successfully.
+ *       400:
+ *         description: Invalid request data.
+ *       401:
+ *         description: Unauthorized access.
+ *       500:
+ *         description: Internal server error.
+ */
 adminRouter.post('/register-new-service', authenticateAdmin,upload.single('image'),addNewServiceController)
 
+// GET request to fetch all services
+/**
+ * @swagger
+ * /api/v1/admin/allservices:
+ *   get:
+ *     summary: Get all services
+ *     description: Fetches a list of all registered services. Requires admin authentication.
+ *     tags:
+ *       - Admin
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved services.
+ *       401:
+ *         description: Unauthorized access.
+ *       500:
+ *         description: Internal server error.
+ */
 adminRouter.get('/allservices',authenticateAdmin, getAllServicesController)
 
 

@@ -1,6 +1,7 @@
-
-
+// Import Mongoose to define the schema and interact with MongoDB
 import mongoose from "mongoose";
+
+// Define the schema for storing Services
 
 const serviceSchema = new mongoose.Schema({
     name: {
@@ -16,6 +17,10 @@ const serviceSchema = new mongoose.Schema({
       } 
 });
 
+
+// Create a Mongoose model for the "Service" collection
 const serviceModel = mongoose.models.Service || mongoose.model("Service", serviceSchema);
 
+
+// Export the service Model for use in other parts of the application
 export default serviceModel;

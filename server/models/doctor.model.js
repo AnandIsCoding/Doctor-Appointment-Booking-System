@@ -16,9 +16,9 @@
 //      slotsBooked:{} by default
 //   }
 
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // Import Mongoose to define the schema and interact with MongoDB
 
-
+// Define the schema for storing doctor details
 const doctorSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -117,9 +117,10 @@ const doctorSchema = new mongoose.Schema({
   },
 },{timestamps:true, minimize:false}); // It ensures that empty objects (e.g., {} in slotsBooked) are not removed before saving to the database.
 
+// Create a Mongoose model for the "Doctor" collection
 const doctorModel = mongoose.models.Doctor || mongoose.model('Doctor', doctorSchema);
 
-
+//Export the appointment model for use in other parts of the application
 export default doctorModel;
 
 

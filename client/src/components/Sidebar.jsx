@@ -1,25 +1,26 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from '../redux/slices/sidebarSlice';
-import { LuSquareArrowLeft, LuSquareArrowRight } from "react-icons/lu";
-import { AiOutlineLogout } from "react-icons/ai";
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { addUser } from '../redux/slices/userSlice';
+import React, { useState } from 'react'; // Imported React and useState hook
+import { useDispatch, useSelector } from "react-redux"; // Imported useDispatch and useSelector from Redux
+import { toggle } from '../redux/slices/sidebarSlice'; // Imported toggle action from sidebarSlice
+import { LuSquareArrowLeft, LuSquareArrowRight } from "react-icons/lu"; // Imported icons for sidebar toggle
+import { AiOutlineLogout } from "react-icons/ai"; // Imported logout icon
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'; // Imported NavLink, useLocation, and useNavigate for navigation
+import axios from 'axios'; // Imported Axios for API requests
+import toast from 'react-hot-toast'; // Imported toast for notifications
+import { addUser } from '../redux/slices/userSlice'; // Imported addUser action from userSlice
 
 function Sidebar() {
 
-  const navigate = useNavigate()
-  const location = useLocation()
-  const dispatch = useDispatch()
-  const isOpen = useSelector(state => state.sidebar)
-  const user = useSelector(state => state.user)
-
-      const [isLoading, setIsloading] = useState(false);
-
+  const navigate = useNavigate(); // Hook for navigation
+  const location = useLocation(); // Hook to get the current route location
+  const dispatch = useDispatch(); // Hook to dispatch Redux actions
+  const isOpen = useSelector(state => state.sidebar); // Selecting sidebar state from Redux store
+  const user = useSelector(state => state.user); // Selecting user state from Redux store
+  
+  const [isLoading, setIsloading] = useState(false); // State to track loading status
+  
+  // Function to toggle the sidebar state
   const handleSidebarToggle = () => {
-    dispatch(toggle())
+      dispatch(toggle());
   }
 
   const handleLogout = async() =>{
@@ -80,10 +81,12 @@ function Sidebar() {
 
       <button onClick={() => navigate('/patient')} className={`w-full ${location.pathname === "/patient" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} cursor-pointer py-2 rounded-lg `}>Patient</button>
 
+      {/* Book appointment button */}
       <NavLink to="/patient/book-appointment" duration={3000} className={`w-full  ${location.pathname === "/patient/book-appointment" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} text-center py-2 rounded-lg cursor-pointer `}>
         New
       </NavLink>
 
+      {/* My appointments button */}
       <NavLink to='/patient/my-appointments' className={`w-full ${location.pathname === "/patient/my-appointments" ? "bg-[#27DFB3] text-black" : "bg-white text-black"} py-2 text-center rounded-lg cursor-pointer`}>
         All
       </NavLink>

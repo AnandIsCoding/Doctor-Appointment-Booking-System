@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { addUser } from "../redux/slices/userSlice";
+import React, { useState } from "react"; // Importing necessary modules from React
+import Navbar from "../components/Navbar"; // Importing Navbar component
+import Footer from "../components/Footer"; // Importing Footer component
+import axios from "axios"; // Importing Axios for API requests
+import { useDispatch } from "react-redux"; // Importing useDispatch from Redux
+import { useNavigate } from "react-router-dom"; // Importing useNavigate for navigation
+import toast from "react-hot-toast"; // Importing toast for notifications
+import { addUser } from "../redux/slices/userSlice"; // Importing addUser action from Redux slice
 
 function Signup() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [isLoading, setIsloading] = useState(false);
+  const dispatch = useDispatch(); // Initializing Redux dispatch
+  const navigate = useNavigate(); // Initializing navigation
+  const [isLoading, setIsloading] = useState(false);  // Loading state
 
-  const [isSignup, setIsSignup] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
+  const [isSignup, setIsSignup] = useState(true); // State to toggle between signup and login
+  const [showPassword, setShowPassword] = useState(false);  // State to toggle password visibility
+  const [formData, setFormData] = useState({ // Form data state
     name: "",
     email: "",
     password: "",
@@ -23,7 +23,7 @@ function Signup() {
     image: null,
   });
 
-  // Single onChange handler
+   // Single onChange handler to handle input changes
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
 
@@ -33,13 +33,15 @@ function Signup() {
     }));
   };
 
+  // Handle signup button click
   const handleSignupBtn = async (event) => {
     event.preventDefault();
-
+    // validate age
     if (formData.age < 18 || formData.age > 110) {
       toast.error("Age must be Minimum 18");
       return;
     }
+    // ensure profile image upload
     if (!formData.image) {
       return toast.error("Please upload a profile image");
     }
@@ -69,7 +71,7 @@ function Signup() {
           },
         }
       );
-
+      // If signup is successful
       if (response.data.success) {
         toast.success(response.data.message, {
           style: {
@@ -82,8 +84,8 @@ function Signup() {
             secondary: '#27DFB3',
           },
         });
-        dispatch(addUser(response.data.user));
-        navigate("/patient");
+        dispatch(addUser(response.data.user)); // Store user in Redux
+        navigate("/patient");  // Redirect user
       } else {
         console.log(formDataToSend);
         console.log(response.data.message);
@@ -100,6 +102,7 @@ function Signup() {
     }
   };
 
+    // Handle login button click
   const handleLoginBtn = async (event) => {
     setIsloading(true);
     event.preventDefault();
@@ -110,7 +113,7 @@ function Signup() {
     const loadingToast = toast.loading("Please Wait .... ");
     setIsloading(true);
 
-    // call backend api to login
+    // call backend api to login endpoint
     try {
       const response = await axios.post(
         `https://dochealth.onrender.com/api/v1/user/login`,
@@ -149,6 +152,7 @@ function Signup() {
 
   return (
     <div>
+    {/* Navbar Component */}
       <Navbar />
 
       <div className="mt-28 w-full flex justify-center items-center mb-8">
@@ -249,7 +253,7 @@ function Signup() {
                     required={true}
                     className="bg-transparent border-b-2 border-zinc-400 text-white px-4 py-2 outline-none"
                   />
-
+  {/* gender */}
                   <label
                     htmlFor="gender"
                     className="text-white cursor-pointer text-sm mt-2"
@@ -277,6 +281,7 @@ function Signup() {
                     </option>
                   </select>
 
+{/* image */}
                   <label
                     htmlFor="image"
                     className="text-white cursor-pointer text-sm mt-2"
@@ -322,6 +327,7 @@ function Signup() {
         </div>
       </div>
 
+{/* Footer component */}
       <Footer />
     </div>
   );

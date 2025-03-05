@@ -7,11 +7,15 @@ import {
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+// controller for user signup/controller
 export const registerUserController = async (req, res) => {
   try {
+    // extract  name, email, password, age, gender from request body
     const { name, email, password, age, gender } = req.body;
+    // extract image from request file
     const image = req.file;
-
+ 
+    // �� Validation, if any one of these missing return missing required fields
     if (!name || !email || !password || !age || !gender) {
       return res.status(400).json({
         success: false,
@@ -101,7 +105,9 @@ export const registerUserController = async (req, res) => {
         error: messages[0],
       });
     }
+    // Log the error message with a red background using Chalk
     console.log(chalk.bgRed("Error in registerUserController.js ===> ", error));
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -113,6 +119,7 @@ export const registerUserController = async (req, res) => {
 
 export const UserLoginController = async (req, res) => {
   try {
+    // extract email and password from request body if any one missing return missing required fields
     const { email, password } = req.body;
     if (!email || !password) {
       return res
@@ -150,16 +157,19 @@ export const UserLoginController = async (req, res) => {
         usertoken: usertoken,
       });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
       chalk.bgRed(
         "Error in LoginUserController in user.controller.js ===> ",
         error
       )
     );
+     // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
 
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -172,6 +182,7 @@ export const UserLoginController = async (req, res) => {
 
 export const getUserProfileController = async (req, res) => {
   try {
+    //extract userId from req.body which will be assigned from middleware
     const { userId } = req.body;
     //find the user by id
     const user = await userModel.findById(userId).select("-password"); //-password so that it will not contain password , security purpose
@@ -191,16 +202,18 @@ export const getUserProfileController = async (req, res) => {
         user: user,
       });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
       chalk.bgRed(
         "Error in userGetProfileController in user.controller.js ===> ",
         error
       )
     );
+     // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -277,17 +290,18 @@ export const updateUserProfileController = async (req, res) => {
         user,
       });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
-      
       chalk.bgRed(
         "Error in updateUserProfileController in user.controller.js ===> ",
         error
       )
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -299,18 +313,21 @@ export const updateUserProfileController = async (req, res) => {
 // user logout controller
 
 export const UserLogoutController = async (req, res) => {
+  //assign nullt o usertoken named cookie
   try {
     res.cookie("usertoken", null, { expires: new Date(Date.now()) });
     return res
       .status(200)
       .json({ success: true, message: "Logout successfully" });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
       chalk.bgRed(
         "Error in LogoutUserController in user.controller.js ===> ",
         error
       )
     );
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });

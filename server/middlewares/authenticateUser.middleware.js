@@ -28,7 +28,7 @@ export const authUser = async(req,res,next) =>{
             // JWT-related errors (e.g., invalid token or expired)
             return res.status(401).json({ success: false, message: 'Unauthorized: Invalid or expired token' })
         }
-
+        // Handle specific error if server connection is lost
         if (error.code === 'ECONNRESET') {
             return res.status(500).json({ success: false, message: 'Internal server error: Connection reset' })
         }

@@ -11,7 +11,7 @@ function Contact() {
       {/* Left Side - Image */}
       <div className="w-full md:w-1/2 p-5">
         <img
-          src="https://img.freepik.com/free-photo/woman-working-as-doctor_23-2148827843.jpg?ga=GA1.1.1433738625.1739525901&semt=ais_hybrid" // Replace with hospital image URL
+          src="https://img.freepik.com/free-photo/woman-working-as-doctor_23-2148827843.jpg?ga=GA1.1.1433738625.1739525901&semt=ais_hybrid" 
           alt="Hospital"
           className="w-full h-auto rounded-lg shadow-lg"
         />

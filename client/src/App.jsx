@@ -74,8 +74,8 @@ function App() {
     event.preventDefault();
   };
 
+  // Fetch all doctors from API and dispatch to doctors store/global state
   const fetchAllDoctors = async() =>{
-    // Fetch all doctors from API
     try {
       const res = await axios.get('https://dochealth.onrender.com/api/v1/doctor/alldoctors')
       if(res.data.success){
@@ -97,6 +97,7 @@ function App() {
       }
     } catch (error) {
       console.log('Error in fetching all doctors api in APP.jsx ==> ',error)
+      // return custom toast with good modern look
       return toast((t) => (
         <span className="w-fit max-w-screen px-2 inline-flex items-center gap-2">
           {error.message}.🚫
@@ -126,6 +127,7 @@ function App() {
           </div>
         }
       >
+      {/* all routes */}
         <Routes>
           <Route path="/" element={<Home />} />
 

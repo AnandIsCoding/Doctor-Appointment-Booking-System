@@ -10,6 +10,8 @@ import {
   isFileTypeSupported,
 } from "../utils/helpers.utils.js";
 
+
+// registerDoctorController 
 export const registerDoctorController = async (req, res) => {
   // create doctor document in the database
   try {
@@ -129,6 +131,7 @@ export const registerDoctorController = async (req, res) => {
         error: messages[0],
       });
     }
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
         "Error in registerDoctorController in admin.controller.js ====>> ",
@@ -141,6 +144,8 @@ export const registerDoctorController = async (req, res) => {
   }
 };
 
+
+// logincontroller which accept email and password from request body and login
 export const loginAdminController = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -163,23 +168,25 @@ export const loginAdminController = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Admin Login Successfull", admintoken });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
         "Error in loginAdminController in admin.controller.js ====>> ",
         error.message
       )
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // send a genric internal server error response
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
   }
 };
 
-
+// add new service controller only admin can access this controller and api
 
 export const addNewServiceController = async(req,res) =>{
   try {
@@ -226,6 +233,7 @@ export const addNewServiceController = async(req,res) =>{
       name,image:response.secure_url
     })
     
+    // Send a successful response with new data
     res.status(201).json({
       success: true,
       message: "Service registered successfully",
@@ -234,16 +242,18 @@ export const addNewServiceController = async(req,res) =>{
 
 
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
         "Error in addNewServiceController in admin.controller.js ====>> ",
         error.message
       )
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // Send a generic internal server error response
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -251,28 +261,41 @@ export const addNewServiceController = async(req,res) =>{
 }
 
 
+// controller to get all services 
 
-export const getAllServicesController = async(req,res) =>{
+// Controller to fetch all services
+export const getAllServicesController = async (req, res) => {
   try {
+    // Fetch all services from the database
     const allservices = await serviceModel.find();
+    
+    // Send a successful response with the retrieved data
     res.status(200).json({
       success: true,
       data: allservices,
       message: "All Services Fetched Successfully",
     });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
-        "Error in  getAllServicesController in doctor.controller.js ====>> ",
+        "Error in getAllServicesController in doctor.controller.js ====>> ",
         error.message
       )
     );
+
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
-      return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
+      return res.status(500).json({ 
+        success: false, 
+        message: "Server connection lost. Please retry." 
+      });
     }
 
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal Server Error" });
+    // Send a generic internal server error response
+    return res.status(500).json({ 
+      success: false, 
+      message: "Internal Server Error" 
+    });
   }
-}
+};

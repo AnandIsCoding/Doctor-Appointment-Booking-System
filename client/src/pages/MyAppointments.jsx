@@ -13,6 +13,7 @@ function MyAppointments() {
   const [allAppointments, setAllappointments] = useState([])
   const [message, setMessage] = useState('')
 
+  // fetch all appointments from api
   const fetchAllAppointments = async () => {
     try {
       const {data} = await axios.get(`https://dochealth.onrender.com/api/v1/appointment/my-appointments`,{withCredentials:true});
@@ -20,6 +21,7 @@ function MyAppointments() {
       setAllappointments(data.allappointments);
     } catch (error) {
       console.log(error)
+      // display error toast
       toast((t) => (
         <span>
           💔Failed to fetch <b>Bookings</b>
@@ -59,6 +61,7 @@ function MyAppointments() {
        fetchAllAppointments();
     } catch (error) {
       console.log('Error in feedback submission in myAppointmentcard: ', error.message)
+      // show error message toast
       toast((t) => (
         <span>
           💔{error.message}
@@ -75,12 +78,14 @@ function MyAppointments() {
   const [showFeedbackform, setShowFeedbackform] = useState(false);
   return (
     <div className="">
+    {/* display mobile option patient navbar and sidebar */}
     <MobileOption/>
       <div className="w-full pt-10 flex">
         <PatientNavbar />
         <Sidebar />
       </div>
 
+{/* display full width container and map all appointments using MyAppointmentsCard component */}
       <div
         className={`w-full mt-24 px-1 ${
           isOpen ? "md:pl-[18%]" : "md:pl-[5%]"

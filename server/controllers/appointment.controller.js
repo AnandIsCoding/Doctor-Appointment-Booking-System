@@ -73,12 +73,15 @@ export const bookAppointmentController = async (req, res) => {
 
     res.status(201).json({ success: true, message: 'Appointment Booked' });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
       chalk.bgRed("Error in bookAppointmentController in appointment.controller.js ===> ", error)
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
+    // send a genric internal server error
 
     return res.status(500).json({ success: false, message: "Internal Server Error" });
   }
@@ -92,13 +95,15 @@ export const allAppointmentsController = async(req,res) =>{
     const allappointments = await appointmentModel.find({userId})
     res.status(200).json({success: true, allappointments})
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.log(
       chalk.bgRed("Error in allAppointmentsController in appointment.controller.js ===> ", error)
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // send a gentric internal server error response
     return res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 }

@@ -1,10 +1,27 @@
-import express from 'express'
+// Import the Express framework to create a router
+import express from 'express';
+
+// Import Multer configuration for handling file uploads
 import upload from '../config/multer.config.js';
-import {getUserProfileController, registerUserController, updateUserProfileController, UserLoginController, UserLogoutController } from '../controllers/user.controller.js';
+
+// Import controller functions to handle user-related operations
+import { 
+  getUserProfileController,   // Handles retrieving user profile details
+  registerUserController,     // Handles user registration
+  updateUserProfileController, // Handles updating user profile
+  UserLoginController,        // Handles user login
+  UserLogoutController        // Handles user logout
+} from '../controllers/user.controller.js';
+
+// Import middleware to authenticate users before accessing protected routes
 import { authUser } from '../middlewares/authenticateUser.middleware.js';
+
+// Import controller function to retrieve all services (used by users)
 import { getAllServicesController } from '../controllers/admin.controller.js';
 
+// Create an instance of the Express router
 const userRouter = express.Router();
+
 
 /**
  * @swagger

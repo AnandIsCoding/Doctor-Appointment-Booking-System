@@ -9,6 +9,7 @@ import MultiStepDescription from '../components/MultiStepDescription'
 function Home() {
   return (
     <div className="">
+    {/* Display Navbar */}
       <Navbar/>
       {/* sticker */}
       <div
@@ -29,15 +30,26 @@ function Home() {
 
 
       <div className="mt-28 mb-10 " >
+
+      {/* Display Announcement Section or Carousel */}
                <AnnouncementSection/>
+               {/* Hospital Services strip  */}
                <HospitalServicesStrip/>
+
+               {/* Display FAQs */}
+
                <FAQs/>
+
+               {/* Display Desciption MultiStepDescription */}
                <MultiStepDescription/>         
          
       </div>
+
+      {/* display footer */}
     <Footer/>
     </div>
   )
 }
 
+// export Home component
 export default Home

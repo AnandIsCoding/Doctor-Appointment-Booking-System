@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { FAQdata } from "../utils/faqData";
 
 function FAQs() {
+  // default opened FAQ index
   const [openIndex, setOpenIndex] = useState(0);
 
+  // function to handle FAQ click event and set the opened FAQ index
   const handleOpen = (index) => {
     setOpenIndex(index === openIndex ? null : index);
   };

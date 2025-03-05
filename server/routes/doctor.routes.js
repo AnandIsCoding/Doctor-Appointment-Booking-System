@@ -1,7 +1,14 @@
-import express from 'express'
-import { getAllDoctorsController, getDoctorByIdController } from '../controllers/doctor.controller.js'
+// Import the Express framework to create a router
+import express from 'express';
 
-const doctorRouter = express.Router()
+// Import controller functions to handle doctor-related operations
+import { 
+  getAllDoctorsController, // Handles retrieving all doctors
+  getDoctorByIdController  // Handles retrieving a specific doctor by ID
+} from '../controllers/doctor.controller.js';
+
+// Create an instance of the Express router
+const doctorRouter = express.Router();
 
 /**
  * @swagger

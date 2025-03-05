@@ -65,7 +65,7 @@ function AnnouncementSection() {
 <button onClick={()=>handleIncrement()} className='absolute top-82 md:top-1/2 right-1 text-white cursor-pointer px-4 py-2 rounded-md'><FaAnglesRight size={32} className='text-black'/></button>
       </div>
 
-      {/* Second Div - Announcement Box with Auto Scrolling */}
+      {/* Second Div - Announcement Box with Auto Scrolling static announcements*/}
       <div
         ref={scrollRef}
         className="w-[40%] md:w-1/2  md:p-6 mr-10 bg-[#A3D1C6]  text-black shadow-lg rounded-lg h-32 md:h-64 overflow-y-auto "

@@ -1,8 +1,18 @@
+// Import the Express framework to create a router
 import express from 'express';
-import { allAppointmentsController, bookAppointmentController } from '../controllers/appointment.controller.js';
-import {authUser} from '../middlewares/authenticateUser.middleware.js'
 
-const appointmentRouter = express.Router()
+// Import controller functions to handle appointment-related operations
+import { 
+  allAppointmentsController, // Handles retrieving all appointments
+  bookAppointmentController  // Handles booking a new appointment
+} from '../controllers/appointment.controller.js';
+
+// Import middleware to authenticate users before accessing protected routes
+import { authUser } from '../middlewares/authenticateUser.middleware.js';
+
+// Create an instance of the Express router
+const appointmentRouter = express.Router();
+
 
 /**
  * @swagger

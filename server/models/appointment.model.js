@@ -1,5 +1,6 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // Import Mongoose to define the schema and interact with MongoDB
 
+// Define the schema for storing appointment details
 const appointmentSchema = new mongoose.Schema({
   userId: {
     type: String,
@@ -48,7 +49,10 @@ const appointmentSchema = new mongoose.Schema({
   },
 });
 
+// Create a Mongoose model for the "Appointment" collection
 const appointmentModel =
-  mongoose.models.Appointment ||
-  mongoose.model("Appointment", appointmentSchema);
+  mongoose.models.Appointment || 
+  mongoose.model("Appointment", appointmentSchema); // Otherwise, create a new model
+
+  //Export the appointment model for use in other parts of the application
 export default appointmentModel;

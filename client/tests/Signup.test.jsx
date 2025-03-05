@@ -11,6 +11,7 @@ import { MemoryRouter } from 'react-router-dom'; // ✅ Import MemoryRouter
 const mockStore = configureStore([]);
 const store = mockStore({});
 
+// Test 1: Check if the component renders without crashing
 describe('Signup Component', () => {
   it('renders Signup component', () => {
     render(

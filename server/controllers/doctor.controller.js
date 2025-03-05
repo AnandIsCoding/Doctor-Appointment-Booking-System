@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import doctorModel from "../models/doctor.model.js";
 import chalk from "chalk";
+
+// Fetch all doctors from MongoDB collection and return them as JSON response
 export const getAllDoctorsController = async (req, res) => {
   try {
     const alldoctors = await doctorModel.find();
@@ -10,16 +12,18 @@ export const getAllDoctorsController = async (req, res) => {
       message: "All Doctors Fetched Successfully",
     });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
         "Error in  getAllDoctorsController in doctor.controller.js ====>> ",
         error.message
       )
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
-
+    // send a genric internal server error
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -53,15 +57,18 @@ export const getDoctorByIdController = async (req, res) => {
         doctor,
       });
   } catch (error) {
+    // Log the error message with a red background using Chalk
     console.error(
       chalk.bgRed(
         "Error in  getDoctorByIDController in doctor.controller.js ====>> ",
         error.message
       )
     );
+    // Handle specific error if server connection is lost
     if (error.code === 'ECONNRESET') {
       return res.status(500).json({ success: false, message: "Server connection lost. Please retry." });
     }
+    // send a genric internal server errror
 
     return res
       .status(500)

@@ -1,6 +1,7 @@
 import React from "react";
 
 function Strip() {
+  // will be displayed on top of every page
   return (
     <nav className="w-full px-2 py-1 bg-[#027c60] backdrop-blur-3xl z-[999] fixed text-white text-xs font-semibold flex justify-between">
       {/* Contact Information */}

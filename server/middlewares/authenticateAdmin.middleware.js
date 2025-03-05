@@ -30,6 +30,7 @@ export const authenticateAdmin = async (req, res, next) => {
     req.admin = decoded;
     next();
   } catch (error) {
+    // log error
     console.error("Unexpected Error in authenticateAdmin middleware", error);
     return res
       .status(500)

@@ -10,7 +10,9 @@ import {Toaster} from 'react-hot-toast'
 createRoot(document.getElementById('root')).render(
    <Provider store={appStore}>
    <BrowserRouter>
+   {/* Toaster to show notifications */}
    <Toaster position="top-center" reverseOrder={false} />
+    {/* Main App component */}
    <App />
  </BrowserRouter>
  </Provider>
