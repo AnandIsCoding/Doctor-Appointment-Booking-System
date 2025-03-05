@@ -200,6 +200,7 @@ This setup enhances performance and ensures seamless data flow across the applic
 <p align="center">
   <img src="client/public/Home1.png" alt="Screenshot 1" width="45%">
   <img src="client/public/Home2.png"  alt="Screenshot 2" width="45%">
+  <br><br> 
   <img src="client/public/Home3.png"  alt="Screenshot 2" width="45%">
   <img src="client/public/Home4.png"  alt="Screenshot 2" width="45%">
 </p>
@@ -209,9 +210,14 @@ This setup enhances performance and ensures seamless data flow across the applic
 <p align="center">
   <img src="client/public/Dashboard1.png" alt="Screenshot 1" width="45%">
   <img src="client/public/Dashboard2.png"  alt="Screenshot 2" width="45%">
+
+  <br>
   <img src="client/public/Dashboard3.png"  alt="Screenshot 2" width="45%">
   <img src="client/public/Dashboard4.png"  alt="Screenshot 2" width="45%">
+
+  <br>
   <img src="client/public/Dashboard5.png"  alt="Screenshot 2" width="100%">
+  <br> <br>
   <img src="client/public/Dashboard6.png"  alt="Screenshot 2" width="100%">
 </p>
 
