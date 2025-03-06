@@ -18,7 +18,7 @@ API Documentation:
 [📄 Swagger API Docs](https://dochealth.onrender.com/api-docs/)
 
 You can view the video demonstration of this project:  
-[📽️ Video Demo](https://www.loom.com/share/c1958e20f9a34087ac2f4c3f6f381b91?sid=c8f5df71-597b-4cda-b4df-25f6e90db7b6)
+[📽️ Video Demo]([https://www.loom.com/share/c1958e20f9a34087ac2f4c3f6f381b91?sid=c8f5df71-597b-4cda-b4df-25f6e90db7b6](https://www.loom.com/share/c6e316e6fd3a4847970563b9f64987b8?sid=b8b6a1be-eaf9-4e2b-acc1-297ba6849442))
 
 You can view the Google Docs file, which includes a summary, useful links, etc.:  
 [📃 Docs File](https://docs.google.com/document/d/1MdAel5LDzvxwVnKxwHLvfMzwSKfhb1GN/edit?usp=sharing&ouid=117885336231223452133&rtpof=true&sd=true)
