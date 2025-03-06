@@ -120,7 +120,7 @@ This **doctor appointment appointment system** allows patients to book appointme
    ```bash
    NODE_ENV=development
    PORT=8000
-   MONGO_URI=mongodb://127.0.0.1:27017/ecommerce
+   MONGO_URI=mongodb://127.0.0.1:27017/Doctor-Appoint-System
 
 
 4. Start the backend server
