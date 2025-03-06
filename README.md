@@ -148,6 +148,13 @@ This **doctor appointment appointment system** allows patients to book appointme
 | PUT | `/api/v1/user/profile/update` | Update profile |
 | GET | `/api/v1/user/logout` | Logout user |
 
+### **Services Endpoints**
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/user/allservices` | fetch all Services |
+| POST   | `/api/v1/admin/register-new-service` | Register a new service |  
+
 ### **Appointment Endpoints**
 
 | Method | Endpoint | Description |
