@@ -67,7 +67,7 @@ This **doctor appointment appointment system** allows patients to book appointme
 ### **Frontend:**
 - **React.js** - UI development.
 - **Tailwind CSS** - Styling.
-- **React Router** - Navigation.
+- **React Router Dom** - Navigation.
 - **React Hot Toast** - Notifications.
 - **Redux Toolkit** - State management.
 - **Vitest and React Testing Library** -For Unit Testing
