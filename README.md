@@ -58,7 +58,7 @@ This **doctor appointment appointment system** allows patients to book appointme
 - 🚀 **Admin APIs Completed** - Admins can manage doctors, users, and appointments.
 - ⚖️ **E2E Testing & Unit Testing** - Ensuring system reliability.
 
-- ⚖️ **Disabled Default Right click inspect option and zoom using mouse touchpad or ctrl++ ** - Ensuring App like feeling.
+- 📱 **Disabled Default Right click inspect option and zoom using mouse touchpad or ctrl++** - Ensuring App like feeling.
 
 ---
 
